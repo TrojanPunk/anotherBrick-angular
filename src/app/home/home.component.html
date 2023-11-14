@@ -1,0 +1,36 @@
+<div class="container ms-3 me-3 pb-4">
+    <div class="controls d-flex justify-content-between align-items-center py-md-3 mb-md-3 py-sm-2">
+        <div class="category-controls d-flex">
+            <button class="category-control d-flex flex-column align-items-center" (click)="displayCategory('commercial')">
+                <i class="bi bi-buildings control-icons"></i>
+                <p class="category-control-text">Commercial</p>
+            </button>
+            <button class="category-control d-flex flex-column align-items-center" (click)="displayCategory('residential')">
+                <i class="bi bi-house-door control-icons"></i>
+                <p class="category-control-text">Residential</p>
+            </button>
+            <button class="category-control d-flex flex-column align-items-center" (click)="displayCategory('rentals')">
+                <i class="bi bi-building control-icons"></i>
+                <p class="category-control-text">Rental</p>
+            </button>
+        </div>
+        <div class="search-filter d-flex justify-content-between">
+            <button class="btn btn-outline-secondary filter d-flex p-3" (click)="openDialog('200ms', '200ms')">
+                <i class="bi bi-sliders"></i>
+                <p class="filter-text mb-0">Filters</p>
+            </button>
+            
+            <div class="input-container">
+                <input class="form-control mr-sm-2 py-3" type="search" placeholder="Search a property" aria-label="Search">
+                <i class="bi bi-search"></i>
+            </div>
+        </div>
+    </div>
+    <div class="cards d-flex flex-column">
+        <app-card class="app-card" *ngFor="let property of displayProperties" [images]="property.images"
+            [propertyName]="property.propertyName" [price]="property.price" [location]="property.location"
+            [features]="property.features" [ratings]="property.ratings" [category]="property.category"
+            [id]="property.id" [area]="property.area">
+        </app-card>
+    </div>
+</div>

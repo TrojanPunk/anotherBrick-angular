@@ -1,0 +1,66 @@
+
+<main class="d-flex w-100">
+    <div class="container d-flex flex-column mt-5">
+        <div class="row vh-90">
+            <div class="col-sm-10 col-md-9 col-lg-8 col-xl-7 mx-auto d-table w-sm-100 h-100 d-flex flex-md-row flex-sm-column justify-content-center align-items-center">
+                <div class="card col-md-12 col-sm-12">
+                    <div class="card-body">
+                        <div class="m-sm-3">
+                            <form [formGroup]="signupData" (submit)="addUser()" novalidate>
+                                <div class="mb-4">
+                                    <label class="form-label">Username</label>
+                                    <input class="form-control form-control-md" type="text" formControlName="username"
+                                        placeholder="Enter Username" />
+                                    <sub *ngIf="signupData.controls['username'].invalid && signupData.controls['username'].dirty && signupData.controls['username'].errors"
+                                        class="text-danger bg-transparent">
+                                        Username is required*
+                                    </sub>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label">Password</label>
+                                    <input class="form-control form-control-md" type="text" formControlName="password"
+                                        placeholder="Enter Password" required />
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label">Email</label>
+                                    <input class="form-control form-control-md" type="text" formControlName="email"
+                                        placeholder="chester2003@gmail.com" />
+                                    <sub *ngIf="signupData.controls['email'].invalid && signupData.controls['email'].dirty && signupData.controls['email'].errors?.['required']"
+                                        class="text-danger bg-transparent">
+                                        Email is required*
+                                    </sub>
+                                    <sub *ngIf="signupData.controls['email'].invalid && signupData.controls['email'].dirty && signupData.controls['email'].errors?.['email']"
+                                        class="text-danger bg-transparent">
+                                        Email entered is invalid*
+                                    </sub>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label">Role</label>
+                                    <input class="form-control form-control-md" type="text" formControlName="roles"
+                                        placeholder="Enter Role" />
+                                    <sub *ngIf="signupData.controls['roles'].invalid && signupData.controls['roles'].dirty && signupData.controls['roles'].errors?.['required']"
+                                        class="text-danger bg-transparent">
+                                        Role is required*
+                                    </sub>
+                                    <sub *ngIf="signupData.controls['roles'].invalid && signupData.controls['roles'].dirty && signupData.controls['roles'].errors?.['roles']"
+                                        class="text-danger bg-transparent">
+                                        Role entered is invalid*
+                                    </sub>
+                                </div>
+
+                                <div class="d-grid gap-2 mt-3">
+                                    <button type="submit" [disabled]="!signupData.valid"
+                                        class="btn btn-md btn-primary">Add User</button>
+                                </div>
+
+                                <div class="signin d-flex justify-content-center">
+                                    <p class="please-signin">Already have an account? </p><a type="button" [routerLink]="'/signin'">Sign In</a>.
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,32 @@
+<div class="card d-flex flex-md-row flex-sm-column" type="button" [routerLink]="['property', id]">
+    <img class="card-img-top" src="{{images[0]}}" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title mb-3 d-flex align-items-center">{{propertyName}} <span
+                [ngClass]="category === 'commercial' ? 'badge bg-primary' : category === 'residential' ? 'badge bg-success' : 'badge bg-warning'"
+                class="property-category">{{category.toUpperCase()}}</span></h5>
+        <p class="card-text features d-flex flex-wrap" *ngIf="category != 'commercial'">
+            <span class="feature d-flex align-items-center px-3 py-2 rounded-3">
+                <i class="fa fa-bed feature-icon" aria-hidden="true"></i>
+                <p class="feature-text mb-0">{{features.bhk}} BHK</p>
+            </span>
+            <span class="feature d-flex align-items-center px-3 py-2 rounded-3">
+                <i class="fa fa-bath feature-icon" aria-hidden="true"></i>
+                <p class="feature-text mb-0">{{features.baths}} baths</p>
+            </span>
+            <span class="feature d-flex align-items-center px-3 py-2 rounded-3">
+                <i class="bi bi-p-circle-fill feature-icon" aria-hidden="true"></i>
+                <p class="feature-text mb-0">{{features.parking}} vehicles</p>
+            </span>
+        </p>
+        <p class="card-text d-flex align-items-center area">
+            Area of <strong class="strong px-2"> {{area}} sq. ft.</strong><span *ngIf="category != 'commercial'" class="bath-count">●  {{randomBaths(features.baths)}} private attached bathroom</span>
+        </p>
+        <p class="card-text d-flex align-items-center ratings mb-4">
+            <i class="bi bi-star-fill"></i>
+            <span class="rating">{{ratings}}</span>
+        </p>
+        <p class="card-text price">₹{{price}}</p>
+        <p class="card-text address mb-0">{{location.address}}</p>
+        <p class="card-text city">{{location.city}} - {{location.pincode}}</p>
+    </div>
+</div>

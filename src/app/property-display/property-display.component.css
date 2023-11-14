@@ -1,0 +1,50 @@
+.spinner {
+    gap: 10px;
+}
+
+.property-title {
+     font-family: 'Poppins';
+     font-weight: 600;
+}
+
+.master-image {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.secondary-image {
+    width: 54%;
+    border-radius: 10px;
+}
+
+.secondary-images {
+    gap: 5%;
+}
+
+.property-details {
+    gap: 40px;
+}
+
+.titles {
+    gap: 10px;
+}
+
+.location {
+    gap: 10px;
+}
+
+.bi-geo-alt-fill {
+    color: #e4303f;
+    background: #ffe6e8;
+}
+
+.location-address {
+    gap: 20px;
+    font-family: 'Poppins';
+    font-weight: 500;
+}
+
+.location-city {
+    font-weight: 400;
+    color: #afafaf;
+}

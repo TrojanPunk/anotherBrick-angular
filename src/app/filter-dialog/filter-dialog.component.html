@@ -1,0 +1,93 @@
+<div class="header d-flex justify-content-center">
+    <h1 mat-dialog-title class="filter mb-0">Filters</h1>
+</div>
+<form [formGroup]="filterData" mat-dialog-content class="content pt-0" (submit)="filterPropertyData()" novalidate>
+    <h1 mat-dialog-title class="content-heading px-0 pb-0 mb-0">Type of property</h1>
+    <p class="content-description mb-4">
+        Search entire homes, offices or places to rent
+    </p>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs12 px-0 d-flex justify-content-center">
+
+                <div id="tab" class="btn-group btn-group-justified" data-toggle="buttons">
+                    <a class="btn btn-default py-3 px-md-5 px-sm-4"
+                        [ngClass]="{'active': selectedCategory === 'residential'}"
+                        (click)="selectCategory('residential')">
+                        <input type="radio" name="category-selection" [(ngModel)]="selectedCategory" value="residential"
+                            formControlName="category" />
+                        <span class="radio-button"></span>
+                        Residential
+                    </a>
+                    <a class="btn btn-default py-3 px-md-5 px-sm-4"
+                        [ngClass]="{'active': selectedCategory === 'commercial'}"
+                        (click)="selectCategory('commercial')">
+                        <input type="radio" name="category-selection" [(ngModel)]="selectedCategory" value="commercial"
+                            formControlName="category" />
+                        <span class="radio-button"></span>
+                        Commercial
+                    </a>
+                    <a class="btn btn-default py-3 px-md-5 px-sm-4"
+                        [ngClass]="{'active': selectedCategory === 'rentals'}" (click)="selectCategory('rentals')">
+                        <input type="radio" name="category-selection" [(ngModel)]="selectedCategory" value="rentals"
+                            formControlName="category" />
+                        <span class="radio-button"></span>
+                        Rental
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <h1 mat-dialog-title class="content-heading px-0 pb-0 mb-0">Price range</h1>
+    <p class="content-description mb-4">
+        Base property prices exclusive of all taxes
+    </p>
+
+    <div class="slider d-flex flex-column align-items-center">
+        <mat-slider class="price-slider" min="4000" max="5000000">
+            <input class="slider-input" value="4000" matSliderStartThumb (valueChange)="updatePriceMin($event)"
+                formControlName="minPrice">
+            <input class="slider-input" value="5000000" matSliderEndThumb (valueChange)="updatePriceMax($event)"
+                formControlName="maxPrice">
+        </mat-slider>
+
+        <div class="price-display d-flex justify-content-between px-5">
+            <div class="minimum d-flex flex-column align-items-center">
+                <h6 class="slider-text">Min</h6>
+                <h1 class="slider-text">{{ minPrice | currency: 'INR'}}</h1>
+            </div>
+            <div class="maximum d-flex flex-column align-items-center">
+                <h6 class="slider-text">Max</h6>
+                <h1 class="slider-text">{{ maxPrice | currency: 'INR'}}</h1>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <h1 mat-dialog-title class="content-heading px-0 pb-0 mb-0">Choose an area</h1>
+    <p class="content-description mb-4">
+        Get recommendations based on your property size preferences
+    </p>
+
+    <div class="slider d-flex flex-column align-items-center">
+        <mat-slider class="area-slider" min="200" max="20000" step="5" discrete [displayWith]="formatLabel">
+            <input matSliderThumb formControlName="area" (valueChange)="updateArea($event)">
+        </mat-slider>
+
+        <div class="price-display d-flex justify-content-center px-5">
+            <div class="area-text d-flex align-items-center">
+                <h1 class="slider-text pe-2">{{ selectedArea }}</h1>
+                <h6 class="slider-text">sq. ft.</h6>
+            </div>
+        </div>
+    </div>
+
+    <div mat-dialog-actions class="d-flex justify-content-center mx-3">
+        <button type="submit" class="filter-button" mat-button mat-dialog-close matTooltip="Filter Properties"
+            aria-label="It filters the properties based on the user preferences">Filter</button>
+    </div>
+</form>

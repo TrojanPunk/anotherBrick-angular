@@ -1,0 +1,110 @@
+.container {
+    width: 100%;
+}
+
+.cards {
+    gap: 20px;
+}
+
+.controls {
+    font-family: 'Montserrat';
+}
+
+.control-icons {
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.category-controls {
+    gap: 40px;
+}
+
+.category-control {
+    gap: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.category-control:hover {
+    color: #e4303f;
+}
+
+.category-control-text {
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+
+.filter {
+    gap: 10px;
+    color: #222222;
+    border-color: #e0e0e0;
+    border-radius: 10px;
+}
+
+.filter:hover {
+    background: #F6F8F9;
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 15rem;
+}
+
+.form-inline {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.form-control {
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+.form-control::placeholder {
+    color: #afafaf;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.input-container i {
+    position: absolute;
+    right: 20px;
+}
+
+.search-filter {
+    gap: 20px;
+}
+
+:host::ng-deep .mdc-dialog__surface {
+    border-radius: 100px !important;
+}
+
+@media screen and (max-width: 1000px) {
+    .controls {
+        gap: 20%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .controls {
+        gap: 20px;
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+}
+
+
+

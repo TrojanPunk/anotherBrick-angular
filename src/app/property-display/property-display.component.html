@@ -1,0 +1,28 @@
+<div class="spinner d-flex justify-content-center align-items-center" *ngIf="loading">
+    <mat-spinner></mat-spinner>
+    <p>Loading</p>
+</div>
+
+<div class="property mx-4">
+    <div class="property-details d-flex align-items-center mb-3">
+        <div class="titles d-flex align-items-center justify-content-center">
+            <h1 class="property-title mb-0">{{propertyData.propertyName}}</h1>
+            <h5 class="card-title mb-3 d-flex align-items-center mt-3"><span
+                [ngClass]="propertyData.category === 'commercial' ? 'badge bg-primary' : propertyData.category === 'residential' ? 'badge bg-success' : 'badge bg-warning'">
+                {{propertyData.category.toUpperCase()}}</span>
+            </h5>
+        </div>
+        <div class="location d-flex align-items-center">
+            <i class="bi bi-geo-alt-fill rounded-5 px-2 py-1"></i>
+            <p class="location-address mb-0 d-flex">{{propertyData.location.address}}<span class="location-city">{{propertyData.location.city}} - {{propertyData.location.pincode}}</span></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-7">
+            <img [src]="propertyData.images[0]" alt="" class="master-image" />
+        </div>
+        <div class="col d-flex flex-column secondary-images">
+            <img [src]="propertyData.images[1]" alt="" class="secondary-image" />
+            <img [src]="propertyData.images[2]" alt="" class="secondary-image" />
+        </div>
+    </div>
