@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, filter } from 'rxjs';
-import { API_GET_FILTERED_PROPERTIES_URL, API_GET_PROPERTIES_URL } from '../models/constant';
-import { IFilterData, IPropertyData } from '../models/interface';
+import { API_GET_FILTERED_PROPERTIES_URL, API_GET_PROPERTIES_URL, API_POST_SELL_PROPERTY_URL } from '../models/constant';
+import { IFilterData, IPostPropertyData, IPropertyData } from '../models/interface';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +23,9 @@ export class PropertyDataService {
 
   getPropertyById(id: string): Observable<IPropertyData> {
     return this.http.get<IPropertyData>(API_GET_PROPERTIES_URL + "/" + id);
+  }
+
+  postPropertyData(postData: IPostPropertyData): Observable<IPostPropertyData> {
+    return this.http.post<IPostPropertyData>(API_POST_SELL_PROPERTY_URL, postData);
   }
 }

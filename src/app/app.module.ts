@@ -19,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from 'src/material/material.module';
 import { FilterDialogComponent } from './filter-dialog/filter-dialog.component';
 import { PropertyDisplayComponent } from './property-display/property-display.component';
+import { SellerCardsComponent } from '../shared/components/seller-cards/seller-cards.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { PropertyDisplayComponent } from './property-display/property-display.co
     HomeComponent,
     CardComponent,
     FilterDialogComponent,
-    PropertyDisplayComponent
+    PropertyDisplayComponent,
+    SellerCardsComponent
   ],
   imports: [
     BrowserModule,

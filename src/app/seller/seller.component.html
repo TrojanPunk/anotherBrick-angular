@@ -1,1 +1,229 @@
-<p>seller works!</p>
+<div class="carousel-container d-flex justify-content-center align-items-center">
+    <div id="carouselExampleAutoplaying" class="carousel slide w-50 mx-4" data-bs-ride="carousel">
+        <div class="carousel-inner h-50">
+            <div class="carousel-item active h-50">
+                <img src="https://cdn.onekindesign.com/wp-content/uploads/2021/01/Craftsman-Style-Home-Raykon-Construction-01-1-Kindesign.jpg"
+                    class="d-block" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="caption-titles">Sell your properties at dream rates</h1>
+                    <h6 class="caption-subtitles">Get buyers which can pay competitive rates</h6>
+                </div>
+            </div>
+            <div class="carousel-item h-50">
+                <img src="https://harbourhomes.com/revslider/media/a328d-alpineheroimage.jpg" class="d-block h-50"
+                    alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="caption-titles">Become a landlord</h1>
+                    <h6 class="caption-subtitles">Find tenants to rent your property at handsome rates</h6>
+                </div>
+            </div>
+            <div class="carousel-item h-50">
+                <img src="https://amazingarchitecture.com/storage/files/1/architecture-firms/shubindonaldson/3101-west-coast-highway/3101_west_coast_highway_shubindonaldson_california-01.jpg"
+                    class="d-block" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="caption-titles">Organizations and firms to buy commercial properties</h1>
+                    <h6 class="caption-subtitles">Well established firms are here to buy offices to expand their
+                        businesses</h6>
+                </div>
+            </div>
+            <div class="carousel-item h-50">
+                <img src="https://harbourhomes.com/assets/_large/se_maple_06.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="caption-titles">Get recommended as a property owner</h1>
+                    <h6 class="caption-subtitles">Attain recognition as a property seller to appear in recommendations
+                    </h6>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+<div class="sell-section mx-4 my-5">
+    <h1 mat-dialog-title class="content-heading px-0 pb-0 mb-0">Sell a property</h1>
+
+    <div class="cards-container row col-sm py-4 px-0">
+        <div class="seller-cards col-md-4 row-sm-3 mb-4" *ngFor="let item of sellerCardInfo">
+            <app-seller-cards [image]="item.image" [title]="item.title" [subtitle]="item.subtitle"></app-seller-cards>
+        </div>
+    </div>
+
+    <h1 mat-dialog-title class="section-heading px-0 pb-0 mb-0">Property Details</h1>
+    <hr class="my-2 mb-4">
+    <form [formGroup]="sellForm" class="sell-form" (submit)="postSellProperty()">
+        <div class="input-container">
+            <div class="col">
+                <label for="propertyName" class="input-label">Property Name</label>
+                <input id="propertyName" class="form-control mr-sm-2 py-3" type="text" placeholder="Property Name"
+                    aria-label="Search" formControlName="propertyName">
+            </div>
+            <i class="bi bi-house"></i>
+
+        </div>
+        <div class="row mt-3 mb-5">
+            <div class="col-6">
+                <div class="input-container" class="w-100">
+                    <div class="col">
+                        <label for="propertyName" class="input-label">Category</label>
+                        <mat-form-field class="w-100">
+                            <mat-select (selectionChange)="disableInputs($event)" formControlName="category" disableRipple placeholder="Select a category">
+                                <mat-option value="rentals">Rentals</mat-option>
+                                <mat-option value="commercial">Commercial</mat-option>
+                                <mat-option value="residential">Residential</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="input-container">
+                    <div class="col">
+                        <label for="propertyName" class="input-label">Price</label>
+                        <input id="propertyName" class="form-control mr-sm-2 py-3" type="number"
+                            placeholder="Enter Price" aria-label="Search" formControlName="price">
+                    </div>
+                    <i class="bi bi-currency-rupee"></i>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="input-container">
+                    <div class="col">
+                        <label for="propertyName" class="input-label">Area (in sq. ft.)</label>
+                        <input id="propertyName" class="form-control mr-sm-2 py-3" type="number"
+                            placeholder="Property Name" aria-label="Search" formControlName="area">
+                    </div>
+                    <i class="bi bi-crop"></i>
+                </div>
+            </div>
+        </div>
+
+        <h1 mat-dialog-title class="section-heading px-0 pb-0 mb-0">Features</h1>
+        <hr class="my-2 mb-4">
+
+        <div class="row mt-3 mb-5">
+            <div class="col-4">
+                <div class="input-container">
+                    <div class="col">
+                        <label for="propertyName" class="input-label">Rooms</label>
+                        <input id="propertyName" class="form-control mr-sm-2 py-3" type="number"
+                            placeholder="No. of rooms" aria-label="Search" formControlName="bhk">
+                    </div>
+                    <i class="fa fa-bed feature-icon" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="input-container">
+                    <div class="col">
+                        <label for="propertyName" class="input-label">Baths</label>
+                        <input id="propertyName" class="form-control mr-sm-2 py-3" type="number"
+                            placeholder="No. of baths" aria-label="Search" formControlName="baths">
+                    </div>
+                    <i class="fa fa-bath feature-icon" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="input-container">
+                    <div class="col">
+                        <label for="propertyName" class="input-label">Parking</label>
+                        <input id="propertyName" class="form-control mr-sm-2 py-3" type="number"
+                            placeholder="No. of vehicles" aria-label="Search" formControlName="parking">
+                    </div>
+                    <i class="bi bi-p-circle-fill feature-icon" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+
+        <h1 mat-dialog-title class="section-heading px-0 pb-0 mb-0">Location</h1>
+        <hr class="my-2 mb-4">
+
+        <div class="row mt-3 mb-3">
+            <div class="col-4">
+                <div class="input-container">
+                    <div class="col">
+                        <label for="propertyName" class="input-label">City</label>
+                        <input id="propertyName" class="form-control mr-sm-2 py-3" type="text"
+                            placeholder="Property city" aria-label="Search" formControlName="city">
+                    </div>
+                    <i class="bi bi-buildings"></i>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="input-container">
+                    <div class="col">
+                        <label for="propertyName" class="input-label">State</label>
+                        <input id="propertyName" class="form-control mr-sm-2 py-3" type="text"
+                            placeholder="Property state" aria-label="Search" formControlName="state">
+                    </div>
+                    <i class="bi bi-compass"></i>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="input-container">
+                    <div class="col">
+                        <label for="propertyName" class="input-label">Pincode</label>
+                        <input id="propertyName" class="form-control mr-sm-2 py-3" type="number" placeholder="Pincode"
+                            aria-label="Search" formControlName="pincode">
+                    </div>
+                    <i class="bi bi-pin-map"></i>
+                </div>
+            </div>
+        </div>
+        <div class="input-container mb-5">
+            <div class="col">
+                <label for="propertyName" class="input-label">Address</label>
+                <input id="propertyName" class="form-control mr-sm-2 py-3" type="text" placeholder="Property address"
+                    aria-label="Search" formControlName="address">
+            </div>
+            <i class="bi bi-geo-alt"></i>
+        </div>
+
+        <div class="col">
+            <h1 mat-dialog-title class="section-heading px-0 pb-0 mb-0">Seller Details</h1>
+            <hr class="my-2 mb-4">
+        </div>
+
+        <div class="input-container">
+            <div class="col">
+                <label for="propertyName" class="input-label">Full Name</label>
+                <input id="propertyName" class="form-control mr-sm-2 py-3" type="text" placeholder="Seller name"
+                    aria-label="Search" formControlName="sellerName">
+            </div>
+            <i class="bi bi-person"></i>
+        </div>
+
+        <div class="row mt-3 mb-5">
+            <div class="col-6">
+                <div class="input-container">
+                    <div class="col">
+                        <label for="propertyName" class="input-label">Mobile Number</label>
+                        <input id="propertyName" class="form-control mr-sm-2 py-3" type="text"
+                            placeholder="Mobile Number" aria-label="Search" formControlName="sellerMobile">
+                    </div>
+                    <i class="bi bi-phone-vibrate"></i>
+                </div>
+            </div>
+            <div class="col-6">
+
+                <div class="input-container">
+                    <div class="col">
+                        <label for="propertyName" class="input-label">Email</label>
+                        <input id="propertyName" class="form-control mr-sm-2 py-3" type="text" placeholder="Email ID"
+                            aria-label="Search" formControlName="sellerEmail">
+                    </div>
+                    <i class="bi bi-envelope"></i>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="filter-button mb-4" mat-button matTooltip="Upload Details"
+            aria-label="It filters the properties based on the user preferences">Submit</button>
+    </form>
+</div>

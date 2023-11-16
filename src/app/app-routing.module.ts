@@ -38,7 +38,7 @@ const routes: Routes = [
     component: BuyerComponent
   },
   {
-    path: "seller/:id",
+    path: "seller",
     component: SellerComponent
   },
   {

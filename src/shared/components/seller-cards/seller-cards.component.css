@@ -1,0 +1,26 @@
+.card {
+    height: 17rem;
+    border-radius: 20px;
+    border: 1px solid #e0e0e0;
+}
+
+h1, h6 {
+    font-family: 'Montserrat';
+    text-align: center;
+}
+
+h1 {
+    font-weight: 600;
+    color: #222222
+}
+
+h6 {
+    font-size: 12px;
+    line-height: 15px;
+    
+}
+
+img {
+    width: 40%;
+    height: auto;
+}

@@ -3,8 +3,8 @@
 }
 
 .property-title {
-     font-family: 'Poppins';
-     font-weight: 600;
+    font-family: 'Poppins';
+    font-weight: 600;
 }
 
 .master-image {
@@ -47,4 +47,262 @@
 .location-city {
     font-weight: 400;
     color: #afafaf;
+}
+
+.features {
+    gap: 40px;
+}
+
+.feature {
+    gap: 10px;
+}
+
+.feature-icon {
+    font-size: 20px;
+}
+
+.feature-text {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.property-heading-desc {
+    font-family: 'Poppins';
+    font-weight: 500;
+}
+
+.card-text {
+    font-family: 'Poppins';
+}
+
+.bi-star-fill {
+    font-size: 10px;
+}
+
+.price,
+.rating {
+    font-family: 'Montserrat';
+    font-weight: 600;
+}
+
+.price {
+    font-weight: 600;
+    color: #e4303f;
+}
+
+.property-essentials {
+    gap: 10px;
+    color: #616161;
+}
+
+.ratings {
+    border-radius: 20px;
+    border: 1px solid #e0e0e0;
+    width: 70%;
+}
+
+.feather {
+    width: 2rem;
+    color: #ffbf00;
+}
+
+#feather1 {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.gold-property {
+    gap: 10px;
+}
+
+.gold-text {
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Montserrat';
+    font-weight: 600;
+}
+
+.details {
+    gap: 40px;
+}
+
+.property-details-left {
+    width: 60%
+}
+
+.seller-details {
+    width: 40%;
+}
+
+.gold-header,
+.property-details-heading {
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Montserrat';
+    width: 40%;
+    line-height: 20px;
+}
+
+.property-details-heading {
+    width: 100%;
+    color: #e4303f;
+}
+
+.star-rating {
+    color: #ffbf00;
+}
+
+.card {
+    font-family: 'Poppins';
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    box-shadow: 0px 20px 60px 0px rgba(0, 0, 0, 0.08);
+
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: 500;
+    gap: 10px;
+    font-family: 'Poppins';
+}
+
+.seller-name {
+    font-family: 'Poppins';
+    font-weight: 600;
+}
+
+.avatar-img {
+    width: 30%;
+}
+
+.avatar {
+    gap: 10px;
+}
+
+.fa-certificate {
+    color: #e4303f;
+}
+
+#star {
+    color: #222222;
+    gap: 5px;
+}
+
+#star-icon {
+    font-size: 14px;
+}
+
+.rating-feedback {
+    font-family: 'Poppins';
+    font-size: 14px;
+}
+
+.seller-feedback {
+    gap: 20px;
+}
+
+.seller-name {
+    font-size: 16px;
+}
+
+.contact-details {
+    gap: 20px;
+}
+
+.phone-number,
+.email {
+    gap: 10px;
+}
+
+.contact-icon {
+    color: #e4303f;
+}
+
+.filter-button {
+    background: linear-gradient(to right, #e43054, #D70565);
+    color: white !important;
+    font-family: 'Montserrat' !important;
+    border-radius: 10px;
+    width: 100%;
+    padding: 20px !important;
+
+    transition: all 1s ease-in-out;
+}
+
+.filter-button:hover {
+    background: linear-gradient(to right, #D70565, #e43054);
+}
+
+.feature-metric {
+    font-size: 24px;
+    font-weight: 600;
+    font-family: 'Montserrat';
+}
+
+.feature-details {
+    gap: 10px;
+    width: 20%;
+}
+
+
+.vl {
+    border-left: 1px solid #afafaf;
+}
+
+.area-text {
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Montserrat';
+}
+
+.area-metric {
+    font-size: 40px;
+    font-weight: 600;
+    font-family: 'Montserrat';
+    color: #e4303f;
+}
+
+.ft {
+    font-size: 20px;
+    color: #616161;
+    font-weight: 500;
+}
+
+.area-img {
+    width: 100%;
+}
+
+.chubb {
+    width: 20%;
+}
+
+.insurance-details {
+    gap: 10px;
+}
+
+.chubb-section {
+    width: 100%;
+    gap: 10px;
+}
+
+.chips {
+    gap: 10px;
+}
+
+.chip {
+    background: #EBEBEB;
+    border-radius: 10px;
+}
+
+.fa-shield {
+    color: dodgerblue;
+}
+
+.main-info {
+    gap: 40px;
+}
+
+.bi-crop {
+    color: #e4303f;
 }

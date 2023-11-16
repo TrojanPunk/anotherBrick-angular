@@ -88,10 +88,6 @@
     gap: 20px;
 }
 
-:host::ng-deep .mdc-dialog__surface {
-    border-radius: 100px !important;
-}
-
 @media screen and (max-width: 1000px) {
     .controls {
         gap: 20%;
@@ -103,6 +99,10 @@
         gap: 20px;
         flex-direction: column;
         margin-bottom: 20px;
+    }
+
+    .input-container {
+        width: 16rem;
     }
 }
 

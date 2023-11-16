@@ -49,7 +49,6 @@ export interface ISeller {
 export interface IFeatures {
     bhk: number;
     baths: number;
-    
     parking: number;
 }
 
@@ -72,6 +71,18 @@ export interface IPropertyData {
     id: string;
     maxPrice: number;
     minPrice: number;
+    area: number;
+}
+
+export interface IPostPropertyData {
+    propertyName: string;
+    seller: ISeller;
+    location: ILocation;
+    features: IFeatures;
+    price: number;
+    ratings: number;
+    images: string[];
+    category: string;
     area: number;
 }
 

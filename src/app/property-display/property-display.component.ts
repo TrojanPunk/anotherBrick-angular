@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { avatars } from 'src/shared/models/constant';
 import { IPropertyData } from 'src/shared/models/interface';
 import { PropertyDataService } from 'src/shared/services/property-data.service';
 
@@ -38,5 +39,17 @@ export class PropertyDisplayComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
       this.propertyId = params.get('id');
     });
+  }
+
+  randomImage(): string {
+    return avatars[Math.floor(Math.random() * avatars.length)];
+  }
+
+  randomYears(): number {
+    return Math.floor(Math.random() * 9) + 1;
+  }
+
+  randomReviews(): number {
+    return Math.floor(Math.random() * 4500) + 50;
   }
 }

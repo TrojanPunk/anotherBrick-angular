@@ -3,18 +3,19 @@
     <p>Loading</p>
 </div>
 
-<div class="property mx-4">
+<div class="property mx-4" *ngIf="!loading">
     <div class="property-details d-flex align-items-center mb-3">
         <div class="titles d-flex align-items-center justify-content-center">
             <h1 class="property-title mb-0">{{propertyData.propertyName}}</h1>
-            <h5 class="card-title mb-3 d-flex align-items-center mt-3"><span
-                [ngClass]="propertyData.category === 'commercial' ? 'badge bg-primary' : propertyData.category === 'residential' ? 'badge bg-success' : 'badge bg-warning'">
-                {{propertyData.category.toUpperCase()}}</span>
+            <h5 class="badge-title mb-3 d-flex align-items-center mt-3"><span
+                    [ngClass]="propertyData.category === 'commercial' ? 'badge bg-primary' : propertyData.category === 'residential' ? 'badge bg-success' : 'badge bg-warning'">
+                    {{propertyData.category.toUpperCase()}}</span>
             </h5>
         </div>
         <div class="location d-flex align-items-center">
             <i class="bi bi-geo-alt-fill rounded-5 px-2 py-1"></i>
-            <p class="location-address mb-0 d-flex">{{propertyData.location.address}}<span class="location-city">{{propertyData.location.city}} - {{propertyData.location.pincode}}</span></p>
+            <p class="location-address mb-0 d-flex">{{propertyData.location.address}}<span
+                    class="location-city">{{propertyData.location.city}} - {{propertyData.location.pincode}}</span></p>
         </div>
     </div>
     <div class="row">
@@ -26,3 +27,160 @@
             <img [src]="propertyData.images[2]" alt="" class="secondary-image" />
         </div>
     </div>
+
+    <h2 class="property-heading-desc mt-4 mb-0">This is a {{propertyData.category}} property in
+        {{propertyData.location.city}}, {{propertyData.location.state}}</h2>
+
+    <div class="main-info d-flex align-items-center">
+        <div class="property-essentials d-flex align-items-center mb-4">
+            <h1 class="price mb-0">{{propertyData.price | currency : 'INR'}}</h1>
+            <p class="price-text mb-0">exclusive of all taxes</p>
+        </div>
+
+        <div class="property-essentials d-flex align-items-center mb-4">
+            <i class="bi bi-crop"></i>
+            <h1 class="price mb-0">{{propertyData.area}}</h1>
+            <p class="price-text mb-0">sq. ft.</p>
+        </div>
+    </div>
+
+    <div class="details d-flex w-100 mb-5">
+        <div class="property-details-left">
+            <div class="ratings d-flex justify-content-between align-items-center w-auto p-3 px-4 mb-5">
+                <div class="gold-property d-flex align-items-center">
+                    <img src="assets/images/feather-icon.svg" alt="" class="feather" id="feather1">
+                    <h1 class="gold-text mb-0">Gold<br>Property</h1>
+                    <img src="assets/images/feather-icon.svg" alt="" class="feather" id="feather2">
+                </div>
+
+
+                <h1 class="gold-header mb-0">Previous tenants rated this as a gold property</h1>
+
+
+                <div class="star-rating d-flex flex-column justify-content-center">
+                    <h1 class="rating ms-1 mb-0">{{propertyData.ratings}}</h1>
+                    <span class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                            class="bi bi-star-fill"></i></span>
+                </div>
+            </div>
+
+            <h1 class="property-details-heading mb-4">Property Details</h1>
+
+            <div class="card-text features d-flex flex-wrap justify-content-center mb-5"
+                *ngIf="propertyData.category != 'commercial'">
+                <div class="feature-details d-flex flex-column justify-content-center align-items-center p-4">
+                    <h3 class="feature-metric mb-0">{{propertyData.features.bhk}}</h3>
+                    <span class="feature d-flex align-items-center px-3 rounded-3">
+                        <i class="fa fa-bed feature-icon" aria-hidden="true"></i>
+                        <p class="feature-text mb-0">BHK</p>
+                    </span>
+                </div>
+                <div class="vl"></div>
+                <div class="feature-details d-flex flex-column justify-content-center align-items-center p-4">
+                    <h3 class="feature-metric mb-0">{{propertyData.features.baths}}</h3>
+                    <span class="feature d-flex align-items-center px-3 rounded-3">
+                        <i class="fa fa-bath feature-icon" aria-hidden="true"></i>
+                        <p class="feature-text mb-0">Baths</p>
+                    </span>
+                </div>
+                <div class="vl"></div>
+                <div class="feature-details d-flex flex-column justify-content-center align-items-center p-4">
+                    <h3 class="feature-metric mb-0">{{propertyData.features.parking}}</h3>
+                    <span class="feature d-flex align-items-center px-3 rounded-3">
+                        <i class="bi bi-p-circle-fill feature-icon" aria-hidden="true"></i>
+                        <p class="feature-text mb-0">Vehicles</p>
+                    </span>
+                </div>
+            </div>
+
+            <div class="insurance-details d-flex flex-column align-items-center justify-content-center mb-4">
+                <div class="chubb-section d-flex justify-content-center align-items-center">
+                    <h2 class="seller-name mb-0">This property has been insured by</h2>
+                    <img src="assets/images/chubb.svg" alt="" class="chubb">
+                    <i class="fa fa-shield"></i>
+                </div>
+                <div class="chips d-flex flex-wrap">
+                    <span class="chip px-3 py-1">Property Damage</span>
+                    <span class="chip px-3 py-1">Natural Disaster</span>
+                    <span class="chip px-3 py-1">Public Liability</span>
+                    <span class="chip px-3 py-1">Commercial & Rental's property</span>
+                    <span class="chip px-3 py-1">Fire Insurance</span>
+                    <span class="chip px-3 py-1">Lanlord Insurance</span>
+                    <span class="chip px-3 py-1">Lanlord Insurance</span>
+                    <span class="chip px-3 py-1">Homeowner's Insurance</span>
+                </div>
+            </div>
+
+            <!-- <div class="area-section">
+                <div class="area d-flex flex-column justify-content-center align-items-center">
+                    <h2 class="area-text mb-2">Area measures upto</h2>
+                    <h1 class="area-metric">{{propertyData.area}} <span class="ft"> sq. ft.</span></h1>
+                </div>
+            </div> -->
+
+        </div>
+
+        <!-- Seller Details  -->
+        <div class="seller-details mb-5">
+            <div class="card d-flex flex-md-row flex-sm-column p-3 px-4" type="button">
+                <div class="card-body">
+                    <div class="title-container d-flex justify-content-center">
+                        <h5 class="card-title mb-3">Know your realtor</h5>
+                    </div>
+
+                    <div class="avatar d-flex flex-column align-items-center mt-3">
+                        <img [src]="randomImage()" alt="" class="avatar-img d-flex align-items-center">
+                        <h2 class="seller-name">{{propertyData.seller.sellerName}} <i class="fa fa-certificate"></i>
+                        </h2>
+                    </div>
+
+                    <div class="seller-feedback d-flex justify-content-between px-4 mt-3">
+                        <div class="seller-rating d-flex flex-column justify-content-center align-items-center">
+                            <div class="star-rating d-flex align-items-center" id="star">
+                                <h1 class="rating ms-1 mb-0">{{propertyData.ratings}}</h1>
+                                <span class="stars"><i class="bi bi-star-fill" id="star-icon"></i></span>
+                            </div>
+                            <h3 class="rating-feedback">Rating</h3>
+                        </div>
+                        <div class="seller-rating d-flex flex-column justify-content-center align-items-center">
+                            <div class="star-rating d-flex align-items-center" id="star">
+                                <h1 class="rating ms-1 mb-0">{{randomReviews()}}</h1>
+                            </div>
+                            <h3 class="rating-feedback">Reviews</h3>
+                        </div>
+                        <div class="seller-rating d-flex flex-column justify-content-center align-items-center">
+                            <div class="star-rating d-flex align-items-center" id="star">
+                                <h1 class="rating ms-1 mb-0">{{randomYears()}}</h1>
+                            </div>
+                            <h3 class="rating-feedback">Years</h3>
+                        </div>
+                    </div>
+
+                    <hr class="mt-0">
+
+                    <div class="seller-contact d-flex justify-content-center">
+                        <h2 class="seller-name">Contact the realtor</h2>
+                    </div>
+
+                    <div class="contact-details d-flex justify-content-between mb-5">
+                        <div class="phone-number d-flex align-items-center">
+                            <i class="bi bi-telephone-fill contact-icon"></i>
+                            <p class="phone-number-text mb-0">{{propertyData.seller.sellerMobile}}</p>
+                        </div>
+                        <div class="email d-flex">
+                            <i class="bi bi-envelope-fill d-flex align-items-center contact-icon"></i>
+                            <p class="email-text mb-0">{{propertyData.seller.sellerEmail}}</p>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="filter-button" mat-button
+                        aria-label="Contact the realtor">Contact</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
