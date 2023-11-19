@@ -11,7 +11,7 @@ export const API_GET_FILTERED_PROPERTIES_URL = `http://localhost:8080/getFiltere
 export const API_POST_SELL_PROPERTY_URL = `http://localhost:8080/postdata`;
 
 export const API_SIGNUP_URL = `http://localhost:8080/usersignup`
-export const API_SIGNIN_URL = `http://anotherbrick-springboot-production.up.railway.app/usersignin`
+export const API_SIGNIN_URL = `http://localhost:8080/usersignin`
 export const API_ADD_FAVORITRES_URL = `http://localhost:8080/postfavoritedata`
 export const API_GET_FAVORITRES_USER_URL = `http://localhost:8080/getfavuser`
 export const API_POST_FAVORITRES_URL = `http://localhost:8080/postfavdata`
