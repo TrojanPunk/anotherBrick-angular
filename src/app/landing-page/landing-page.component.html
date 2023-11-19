@@ -1,0 +1,45 @@
+<form class="landing-section" [formGroup]="signinForm" (submit)="submitSignin()">
+    <div class="hero-section d-flex justify-content-center align-items-center mt-4 mb-3">
+        <h1 class="hero-text">
+            Find your dream property<br>Sell a fortune
+        </h1>
+    </div>
+
+    <div class="signin-signup d-flex justify-content-center mb-4">
+        <button class="signin mb-0 px-3 py-2 rounded-3" [routerLink]="'/'">Sign In</button>
+        <div class="vl"></div>
+        <button class="signup mb-0 px-3 py-2 rounded-3" [routerLink]="'/signup'">Sign Up</button>
+    </div>
+
+    <div class="sign-form d-flex flex-column justify-content-center align-items-center">
+        <div class="col-md-4 col-sm-6">
+            <div class="input-container mb-3">
+                <div class="col">
+                    <label for="propertyName" class="input-label">Username</label>
+                    <input id="propertyName" class="form-control mr-sm-2 py-3" type="text" placeholder="Enter Username"
+                        aria-label="Search" formControlName="username">
+                </div>
+                <i class="fa fa-user mt-4" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="input-container">
+                <div class="col">
+                    <label for="propertyName" class="input-label">Password</label>
+                    <input id="propertyName" class="form-control mr-sm-2 py-3" type="password"
+                        placeholder="Enter Password" aria-label="Search" formControlName="password">
+                </div>
+                <i class="fa fa-key mt-4" aria-hidden="true"></i>
+
+            </div>
+            <sub *ngIf="isWrong"
+                class="text-danger bg-transparent">
+                Username or password is wrong*
+            </sub>
+            <button type="submit" class="filter-button mt-4" mat-button aria-label="Contact the realtor"  [disabled]="!signinForm.valid">Sign
+                In</button>
+        </div>
+    </div>
+
+    <img src="assets/images/large-city-2.svg" alt="" class="city w-100">
+</form>

@@ -88,17 +88,54 @@
     gap: 20px;
 }
 
-.gif {
-    width: 40%;
-}
-
-.no-result-text {
-    font-family: 'Montserrat';
-    text-align: center;
-}
-
-.spinner-container {
+.carousel-slide {
     height: 90vh;
+}
+
+.carousel-inner {
+    border-radius: 20px;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    background: black;
+}
+
+.caption-titles {
+    font-family: 'Montserrat';
+    margin-bottom: 10px;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.caption-subtitles {
+    font-family: 'Poppins';
+    font-size: 14px;
+    font-weight: 200;
+}
+
+.carousel-item:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgb(33, 33, 33, 1), transparent);
+}
+
+.favorites-text {
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 32px;
+    width: 60%;
+}
+
+.favorites-sub {
+    font-family: 'Montserrat';
+    width: 80%;
 }
 
 .spinner {
@@ -123,6 +160,16 @@ mat-spinner {
     .controls {
         gap: 20%;
     }
+
+    .favorites-text {
+        font-size: 32px;
+        width: 80%;
+    }
+
+    .favorites-sub {
+        font-family: 'Montserrat';
+        width: 80%;
+    }
 }
 
 @media screen and (max-width: 800px) {
@@ -136,16 +183,25 @@ mat-spinner {
         width: 16rem;
     }
 
-    .no-result-text {
-        font-size: 16px;
+    .carousel-container {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .favorites-text {
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 20px;
+        width: 100%;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .favorites-sub {
+        text-align: center;
+        width: 100%;
     }
 }
 
-@media screen and (max-width: 500px) {
-
-    .input-container {
-        width: 12rem;
-    }
-}
 
 

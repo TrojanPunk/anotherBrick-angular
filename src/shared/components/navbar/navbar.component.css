@@ -8,3 +8,35 @@
     font-weight: 900;
     color: #e4303f;
 }
+
+.wishlist {
+    gap: 10px;
+    font-family: 'Montserrat';
+    background: #e4303f;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+}
+
+.wishlist:hover,
+.logout:hover {
+    background: #D70565;
+    cursor: pointer;
+}
+
+.logout {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+}
+
+.logout:hover {
+    background: #F6F8F9;
+}
+
+.actions {
+    gap: 10px;
+}
+
+.logout {
+    font-size: 20px;
+}

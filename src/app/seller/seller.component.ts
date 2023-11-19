@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { sellerCardInfo } from 'src/shared/models/constant';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { PATTERN, PROPERTY_IMAGES, sellerCardInfo } from 'src/shared/models/constant';
 import { IPostPropertyData, IPropertyData } from 'src/shared/models/interface';
 import { PropertyDataService } from 'src/shared/services/property-data.service';
 
@@ -34,28 +35,27 @@ export class SellerComponent implements OnInit {
     area: 0,
     price: 0,
     ratings: parseFloat((Math.random() < 0.5 ? ((1 - Math.random()) * (4.7 - 3.5) + 3.5) : (Math.random() * (4.7 - 3.5) + 3.5)).toFixed(1)),
-    images: ["https://a0.muscache.com/im/pictures/e7cddd94-2caa-4c08-aa6f-d21da6187571.jpg?im_w=960", "https://a0.muscache.com/im/pictures/ddb8242c-2d0d-496e-875b-1d5fc0bdb401.jpg?im_w=1200", "https://a0.muscache.com/im/pictures/34e6e322-f057-404d-8e05-34e6c5d6bc09.jpg?im_w=1200"],
+    images: this.randomImageSet(),
     category: ''
   }];
 
-  constructor(private fb: FormBuilder, private propertyDataService: PropertyDataService) { }
+  constructor(private fb: FormBuilder, private propertyDataService: PropertyDataService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.sellForm = this.fb.group({
-      price: [0],
-      bhk: [0], baths: [0], parking: [0],
-      sellerName: [''], sellerEmail: [''], sellerMobile: [0],
-      city: [''], address: [''], state: [''], pincode: [0],
-      ratings: [0],
-      area: [0],
-      propertyName: '',
-      category: ['']
+      price: [0, [Validators.required]],
+      bhk: [0, [Validators.required]], baths: [0, [Validators.required]], parking: [0, [Validators.required]],
+      sellerName: ['', [Validators.required]], sellerEmail: ['', [Validators.required, Validators.email]], sellerMobile: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
+      city: ['', [Validators.required]], address: ['', [Validators.required]], state: ['', [Validators.required]], pincode: [0, [Validators.required]],
+      ratings: [0, [Validators.required]],
+      area: [0, [Validators.required]],
+      propertyName: ['', [Validators.required]],
+      category: ['', [Validators.required]]
     });
   }
 
   postSellProperty(): void {
     const FORM_DATA = this.sellForm.getRawValue();
-    console.log("This is the post form data", this.sellForm.getRawValue());
     this.postSellPropertyData[0].area = FORM_DATA.area;
     this.postSellPropertyData[0].price = FORM_DATA.price;
     this.postSellPropertyData[0].category = FORM_DATA.category;
@@ -70,15 +70,19 @@ export class SellerComponent implements OnInit {
     this.postSellPropertyData[0].seller.sellerName = FORM_DATA.sellerName;
     this.postSellPropertyData[0].seller.sellerMobile = FORM_DATA.sellerMobile;
     this.postSellPropertyData[0].seller.sellerEmail = FORM_DATA.sellerEmail;
-    console.log("This is post data: ", this.postSellPropertyData);
 
     this.propertyDataService.postPropertyData(this.postSellPropertyData[0]).subscribe({
-      next: res => console.log("Data Posted!", res),
-      error: err => console.log(err)
+      next: res => {
+        console.log(res)
+      },
+      error: err => {
+        console.log(err);
+        this.openSnackBar();
+      }
     })
   }
 
-  disableInputs(event: any) {
+  disableInputs(event: any): void {
     const category = event.value;
     if (category === 'commercial') {
       this.sellForm.controls['bhk'].disable();
@@ -90,5 +94,24 @@ export class SellerComponent implements OnInit {
       this.sellForm.controls['parking'].enable();
       this.sellForm.controls['baths'].enable();
     }
+  }
+
+  randomImageSet(): string[] {
+    return PROPERTY_IMAGES[Math.floor(Math.random() * PROPERTY_IMAGES.length)]
+  }
+
+  openSnackBar(): void {
+    this._snackBar.open('Posted property', 'data', {
+      horizontalPosition: 'end',
+      verticalPosition: 'top',
+      duration: 5000,
+    });
+  }
+
+  validateNumber(control: AbstractControl) : {[key: string] : boolean} | null {
+    if (PATTERN.test(control.value)) {
+      return { 'phoneNumberInvalid': true };
+    }
+    return null;
   }
 }

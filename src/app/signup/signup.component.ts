@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { IPostSignUpData, ISignupData } from 'src/shared/models/interface';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { ISignupData } from 'src/shared/models/interface';
 import { SignupDataService } from 'src/shared/services/signup-data.service';
 
 @Component({
@@ -10,41 +12,55 @@ import { SignupDataService } from 'src/shared/services/signup-data.service';
 })
 export class SignupComponent {
   signupData: FormGroup = this.fb.group({})
-  postSignupData: IPostSignUpData = {
+  selectedCategory: string = 'buyer';
+  postSignupData: ISignupData = {
+    id: "",
     username: "",
     email: "",
     password: "",
-    roles: [""]
+    roles: "",
+    favorites: []
   };
 
-  constructor(private signupDataService: SignupDataService, private fb: FormBuilder) { }
+  constructor(private signupDataService: SignupDataService, private fb: FormBuilder, private router: Router, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.signupData = this.fb.group({
-      username: [""],
-      email: [""],
-      password: [""],
+      username: ["", [Validators.required]],
+      email: ["", Validators.required],
+      password: ["", [Validators.required]],
       roles: [""]
     })
   }
 
   addUser(): void {
     const POST_DATA: ISignupData = this.signupData.getRawValue();
-    console.log(this.postSignupData, POST_DATA);
-    this.postSignupData.username = POST_DATA.username;
-    this.postSignupData.email = POST_DATA.email;
-    this.postSignupData.password = POST_DATA.password;
-    this.postSignupData.roles = [];
-    this.postSignupData.roles.push(POST_DATA.roles);
-    console.log(this.postSignupData)
+    POST_DATA.favorites = [];
 
-    this.signupDataService.postSignupData(this.postSignupData).subscribe(
+    this.signupDataService.postSignupData(POST_DATA).subscribe(
       {
         next: (res) => {
           console.log(res);
+          
         },  
-        error: error => alert('error' + error)
+        error: error => console.log("code works!")
       },
     );
+    this.openSnackBar(POST_DATA.username)
+    setTimeout(() => {
+    }, 3000);
+    this.router.navigate(['/']);
+  }
+
+  selectCategory(category: string): void {
+    this.selectedCategory = category;
+  }
+
+  openSnackBar(username: string) {
+    this._snackBar.open('User created', username, {
+      horizontalPosition: 'end',
+      verticalPosition: 'top',
+      duration: 5000,
+    });
   }
 }

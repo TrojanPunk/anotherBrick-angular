@@ -1,6 +1,8 @@
-<div class="spinner d-flex justify-content-center align-items-center" *ngIf="loading">
-    <mat-spinner></mat-spinner>
-    <p>Loading</p>
+<div class="container w-100 d-flex justify-content-center align-items-center" *ngIf="loading">
+    <div class="spinner d-flex align-items-center">
+        <mat-spinner diameter="40"></mat-spinner>
+        <p class="loading mb-0">Loading</p>
+    </div>
 </div>
 
 <div class="property mx-4" *ngIf="!loading">
@@ -22,7 +24,7 @@
         <div class="col-md-7">
             <img [src]="propertyData.images[0]" alt="" class="master-image" />
         </div>
-        <div class="col d-flex flex-column secondary-images">
+        <div class="col d-flex flex-md-column flex-sm-row secondary-images">
             <img [src]="propertyData.images[1]" alt="" class="secondary-image" />
             <img [src]="propertyData.images[2]" alt="" class="secondary-image" />
         </div>
@@ -44,8 +46,8 @@
         </div>
     </div>
 
-    <div class="details d-flex w-100 mb-5">
-        <div class="property-details-left">
+    <div class="details d-flex w-100 mb-3">
+        <div class="property-details-left w-100">
             <div class="ratings d-flex justify-content-between align-items-center w-auto p-3 px-4 mb-5">
                 <div class="gold-property d-flex align-items-center">
                     <img src="assets/images/feather-icon.svg" alt="" class="feather" id="feather1">
@@ -122,8 +124,8 @@
         </div>
 
         <!-- Seller Details  -->
-        <div class="seller-details mb-5">
-            <div class="card d-flex flex-md-row flex-sm-column p-3 px-4" type="button">
+        <div class="seller-details mb-5 w-100">
+            <div class="card d-flex p-3 px-4" type="button">
                 <div class="card-body">
                     <div class="title-container d-flex justify-content-center">
                         <h5 class="card-title mb-3">Know your realtor</h5>
@@ -181,6 +183,14 @@
             </div>
         </div>
     </div>
+</div>
 
-
+<div class="map-body d-flex flex-column align-items-center justify-content-center">
+    
+    <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.15328649608!2d78.3887215741942!3d17.45237590093166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91f08e54eb3f%3A0x3128d84171b9c1a0!2sTaaza%20Kitchen!5e0!3m2!1sen!2sin!4v1700411410564!5m2!1sen!2sin"
+    width="90%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"></iframe>
+    
+    <h1 class="map-title mx-4">{{propertyData.location.address}} - {{propertyData.location.pincode}}</h1>
 </div>

@@ -20,6 +20,9 @@ import { MaterialModule } from 'src/material/material.module';
 import { FilterDialogComponent } from './filter-dialog/filter-dialog.component';
 import { PropertyDisplayComponent } from './property-display/property-display.component';
 import { SellerCardsComponent } from '../shared/components/seller-cards/seller-cards.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
+import { FooterComponent } from '../shared/components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { SellerCardsComponent } from '../shared/components/seller-cards/seller-c
     CardComponent,
     FilterDialogComponent,
     PropertyDisplayComponent,
-    SellerCardsComponent
+    SellerCardsComponent,
+    LandingPageComponent,
+    WishlistComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -46,13 +52,7 @@ import { SellerCardsComponent } from '../shared/components/seller-cards/seller-c
     BrowserAnimationsModule,
     MaterialModule
   ],
-  providers: [
-  //   {
-  //   provide: HTTP_INTERCEPTORS,
-  //   useClass: LoginInterceptor,
-  //   multi: true
-  // }
-],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

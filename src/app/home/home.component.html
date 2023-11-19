@@ -21,16 +21,28 @@
             </button>
             
             <div class="input-container">
-                <input class="form-control mr-sm-2 py-3" type="search" placeholder="Search a property" aria-label="Search">
+                <input class="form-control mr-sm-2 py-3" type="search" placeholder="Search a property" aria-label="Search" (keyup)="searchingProperty($event)" formControlName="searching">
                 <i class="bi bi-search"></i>
             </div>
         </div>
     </div>
-    <div class="cards d-flex flex-column">
-        <app-card class="app-card" *ngFor="let property of displayProperties" [images]="property.images"
-            [propertyName]="property.propertyName" [price]="property.price" [location]="property.location"
-            [features]="property.features" [ratings]="property.ratings" [category]="property.category"
-            [id]="property.id" [area]="property.area">
-        </app-card>
+    <div class="spinner-container w-100 d-flex justify-content-center align-items-center" *ngIf="loading">
+        <div class="spinner d-flex align-items-center">
+            <mat-spinner diameter="40"></mat-spinner>
+            <p class="loading mb-0">Loading</p>
+        </div>
+    </div>
+    <div class="property-container" *ngIf="!loading">
+        <div class="cards d-flex flex-column" *ngIf="displayProperties">
+            <app-card class="app-card" *ngFor="let property of displayProperties" [images]="property.images"
+                [propertyName]="property.propertyName" [price]="property.price" [location]="property.location"
+                [features]="property.features" [ratings]="property.ratings" [category]="property.category"
+                [id]="property.id" [area]="property.area">
+            </app-card>
+        </div>
+        <div class="no-results d-flex flex-column justify-content-center align-items-center" *ngIf="displayProperties.length == 0">
+            <img src="assets/images/no-results.svg" alt="" class="gif">
+            <h2 class="no-result-text px-4">Oops! Maybe you are looking for something we do not have</h2>
+        </div>
     </div>
 </div>

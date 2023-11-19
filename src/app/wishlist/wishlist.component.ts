@@ -1,45 +1,34 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { IFavoritesData, IPropertyData } from 'src/shared/models/interface';
 import { PropertyDataService } from 'src/shared/services/property-data.service';
 import { FilterDialogComponent } from '../filter-dialog/filter-dialog.component';
-import { MatDialog } from '@angular/material/dialog';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { SignupDataService } from 'src/shared/services/signup-data.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-wishlist',
+  templateUrl: './wishlist.component.html',
+  styleUrls: ['./wishlist.component.css']
 })
-export class HomeComponent {
-  searchProperty: FormGroup = this.fb.group({});
+export class WishlistComponent {
   loading: boolean = true;
   propertyData: IPropertyData[] = [];
   displayProperties: IPropertyData[] = [];
+  propertyIds: string[] = [];
   favoritesProperties: IFavoritesData = {
     id: '',
     favorites: []
   };
 
-  constructor(private propertyDataService: PropertyDataService, public dialog: MatDialog, private fb: FormBuilder) { }
+  constructor(private propertyDataService: PropertyDataService, public dialog: MatDialog, private signupDataService: SignupDataService) { }
 
   ngOnInit(): void {
-    this.searchProperty = this.fb.group({
-      searching: ['']
-    })
-
     this.loading = true;
-    this.gettingData();
-    this.fetchPropertyData();
+    this.getUserData();
   }
 
   displayCategory(category: string) {
     this.displayProperties = this.propertyData.filter((element: IPropertyData) => element.category === category);
-  }
-
-  searchingProperty(name: any) {
-    const targetName : string = (name.target.value).toLowerCase();
-    this.displayProperties = this.propertyData.filter((element : IPropertyData) =>
-      element.propertyName.toLowerCase().startsWith(targetName))
   }
 
   fetchPropertyData(): void {
@@ -55,11 +44,36 @@ export class HomeComponent {
     })
   }
 
+  getUserData(): void {
+    const ID = localStorage.getItem("userId")!;
+
+    this.signupDataService.getUserById(ID).subscribe({
+      next: res => {
+        this.propertyIds = res.favorites;
+        this.getDataById();
+      },
+      error: err => console.log(err)
+    })
+  }
+
   gettingData(): void {
     this.propertyDataService.filteredPropertyDataSubject.subscribe({
       next: res => this.displayProperties = res,
       error: err => console.log(err)
     })
+  }
+
+  getDataById(): void {
+
+    this.propertyIds.forEach(element => {
+      this.propertyDataService.getPropertyById(element).subscribe({
+        next: res => {
+          this.displayProperties.push(res);
+        },
+        error: err => console.log(err)
+      })
+    });
+    this.loading = false;
   }
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {

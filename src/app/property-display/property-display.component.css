@@ -306,3 +306,110 @@
 .bi-crop {
     color: #e4303f;
 }
+
+.maps{
+    box-shadow: 0px 20px 60px 0px rgba(0, 0, 0, 0.08);
+}
+
+.container {
+    height: 90vh;
+}
+
+.spinner {
+    gap: 20px;
+}
+
+mat-spinner {
+    height: 20px;
+}
+
+.loading {
+    font-size: 16px;
+    font-family: 'Montserrat';
+    font-weight: 500;
+}
+
+:host::ng-deep .mdc-circular-progress__indeterminate-circle-graphic {
+    stroke: #e43054 !important;
+}
+
+.map-title {
+    font-size: 14px;
+    font-family: 'Montserrat';
+}
+
+iframe {
+    border-radius: 20px;
+}
+
+@media screen and(max-width: 1000px) {
+    .details {
+        flex-direction: column;
+    }
+}
+
+@media screen and(max-width: 580px) {
+    .details {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 576px) {
+    .details {
+      flex-direction: column;
+    }
+
+    .property-details {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .main-info {
+        margin-top: 20px !important;
+        flex-direction: column;
+        align-items: start !important;
+        justify-content: start !important;
+        gap: 10px;
+    }
+
+    .property-essentials {
+        margin-bottom: 10px !important;
+    }
+
+    .property-heading-desc {
+        width: 100%;
+    }
+
+    .gold-header, .gold-text {
+        font-size: 12px;
+        line-height: 12px;
+    }
+
+    .feather {
+        width: 1rem;
+    }
+
+    .features {
+        gap: 20px;
+    }
+
+    .location-address{
+        font-size: 12px;
+    }
+
+    .secondary-images {
+        margin-top: 10px !important;
+    }
+
+    .secondary-image {
+        width: 47%;
+    }
+
+    .chubb-section {
+        flex-direction: column;
+        align-items: start !important;
+        margin-bottom: 10px;
+    }
+
+    
+  }

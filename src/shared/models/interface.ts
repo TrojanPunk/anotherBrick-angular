@@ -1,15 +1,17 @@
-export interface ISignupData {
+export interface ISignupData { 
+    id: string;  
     username: string;
     email: string;
     password: string;
     roles: string;
+    favorites: string[];
 }
 
-export interface IPostSignUpData {
+export interface IPostSignUpData {      
     username: string;
     email: string;
     password: string;
-    roles: string[];
+    roles: string;
 }
 
 export interface ISigninData {
@@ -92,4 +94,9 @@ export interface IFilterData {
     maxPrice: number;
     category: string;
     area: number;
+}
+
+export interface IFavoritesData {
+    id : string;
+    favorites: IPropertyData[];
 }

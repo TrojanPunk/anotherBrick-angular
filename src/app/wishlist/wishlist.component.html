@@ -1,0 +1,70 @@
+<div class="carousel-container d-flex align-items-center mb-5">
+    <div id="carouselExampleAutoplaying" class="carousel slide w-50 mx-4" data-bs-ride="carousel">
+        <div class="carousel-inner h-50">
+            <div class="carousel-item active h-50">
+                <img src="https://cdn.onekindesign.com/wp-content/uploads/2021/01/Craftsman-Style-Home-Raykon-Construction-01-1-Kindesign.jpg"
+                    class="d-block" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="caption-titles">Sell your properties at dream rates</h1>
+                    <h6 class="caption-subtitles">Get buyers which can pay competitive rates</h6>
+                </div>
+            </div>
+            <div class="carousel-item h-50">
+                <img src="https://harbourhomes.com/revslider/media/a328d-alpineheroimage.jpg" class="d-block h-50"
+                    alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="caption-titles">Become a landlord</h1>
+                    <h6 class="caption-subtitles">Find tenants to rent your property at handsome rates</h6>
+                </div>
+            </div>
+            <div class="carousel-item h-50">
+                <img src="https://amazingarchitecture.com/storage/files/1/architecture-firms/shubindonaldson/3101-west-coast-highway/3101_west_coast_highway_shubindonaldson_california-01.jpg"
+                    class="d-block" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="caption-titles">Organizations and firms to buy commercial properties</h1>
+                    <h6 class="caption-subtitles">Well established firms are here to buy offices to expand their
+                        businesses</h6>
+                </div>
+            </div>
+            <div class="carousel-item h-50">
+                <img src="https://harbourhomes.com/assets/_large/se_maple_06.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="caption-titles">Get recommended as a property owner</h1>
+                    <h6 class="caption-subtitles">Attain recognition as a property seller to appear in recommendations
+                    </h6>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <div class="favorites-texts">
+        <h1 class="favorites-text">Make your favorite properties a reality</h1>
+        <p class="favorites-sub">Surf through your favorites to select, contact and initiate the process of buying the property you need</p>
+    </div>
+</div>
+<div class="container ms-3 me-3 pb-4">
+    <div class="spinner-container w-100 d-flex justify-content-center align-items-center" *ngIf="loading">
+        <div class="spinner d-flex align-items-center">
+            <mat-spinner diameter="40"></mat-spinner>
+            <p class="loading mb-0">Loading</p>
+        </div>
+    </div>
+    <div class="cards d-flex flex-column" *ngIf="!loading">
+        <div class="cards d-flex flex-column" *ngIf="displayProperties">
+            <app-card class="app-card" *ngFor="let property of displayProperties" [images]="property.images"
+                [propertyName]="property.propertyName" [price]="property.price" [location]="property.location"
+                [features]="property.features" [ratings]="property.ratings" [category]="property.category"
+                [id]="property.id" [area]="property.area">
+            </app-card>
+        </div>
+    </div>
+</div>

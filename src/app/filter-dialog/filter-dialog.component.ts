@@ -65,7 +65,6 @@ export class FilterDialogComponent implements OnInit, OnDestroy {
     });
 
     const formSub = this.filterData.valueChanges.subscribe(value => {
-      console.log(value);
     });
   }
 
@@ -82,16 +81,14 @@ export class FilterDialogComponent implements OnInit, OnDestroy {
   }
 
   selectCategory(category: string): void {
-    this.selectedCategory = category; // update selected category
+    this.selectedCategory = category;
   }
 
   updatePriceMin(value: number): void {
-    console.warn(value);
     this.minPrice = value;
   }
 
   updatePriceMax(value: number): void {
-    console.warn(value);
     this.maxPrice = value;
   }
 
@@ -100,16 +97,14 @@ export class FilterDialogComponent implements OnInit, OnDestroy {
   }
 
   filterPropertyData(): void {
-    console.log("Inside filter property data after submit");
     
     const POST_FILTER_DATA: IPropertyData = this.filterData.getRawValue();
-    console.log(POST_FILTER_DATA);
     this.postFilterData[0].category = POST_FILTER_DATA.category;
     this.postFilterData[0].area = POST_FILTER_DATA.area;
     this.postFilterData[0].maxPrice = POST_FILTER_DATA.maxPrice;
     this.postFilterData[0].minPrice = POST_FILTER_DATA.minPrice;
     this.postFilterData[0].price = POST_FILTER_DATA.price;
-    console.log(this.postFilterData);
+
     this.getFilteredData(this.postFilterData);
   }
 
@@ -119,7 +114,6 @@ export class FilterDialogComponent implements OnInit, OnDestroy {
       next: (res) => {
         
         this.propertyDataService.filteredPropertyDataSubject.next(res);
-        console.log(res);
       },
       error: err => console.log(err)
     })

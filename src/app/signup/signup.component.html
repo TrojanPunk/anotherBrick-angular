@@ -1,66 +1,87 @@
+<form class="landing-section" [formGroup]="signupData" (submit)="addUser()">
 
-<main class="d-flex w-100">
-    <div class="container d-flex flex-column mt-5">
-        <div class="row vh-90">
-            <div class="col-sm-10 col-md-9 col-lg-8 col-xl-7 mx-auto d-table w-sm-100 h-100 d-flex flex-md-row flex-sm-column justify-content-center align-items-center">
-                <div class="card col-md-12 col-sm-12">
-                    <div class="card-body">
-                        <div class="m-sm-3">
-                            <form [formGroup]="signupData" (submit)="addUser()" novalidate>
-                                <div class="mb-4">
-                                    <label class="form-label">Username</label>
-                                    <input class="form-control form-control-md" type="text" formControlName="username"
-                                        placeholder="Enter Username" />
-                                    <sub *ngIf="signupData.controls['username'].invalid && signupData.controls['username'].dirty && signupData.controls['username'].errors"
-                                        class="text-danger bg-transparent">
-                                        Username is required*
-                                    </sub>
-                                </div>
-                                <div class="mb-4">
-                                    <label class="form-label">Password</label>
-                                    <input class="form-control form-control-md" type="text" formControlName="password"
-                                        placeholder="Enter Password" required />
-                                </div>
-                                <div class="mb-4">
-                                    <label class="form-label">Email</label>
-                                    <input class="form-control form-control-md" type="text" formControlName="email"
-                                        placeholder="chester2003@gmail.com" />
-                                    <sub *ngIf="signupData.controls['email'].invalid && signupData.controls['email'].dirty && signupData.controls['email'].errors?.['required']"
-                                        class="text-danger bg-transparent">
-                                        Email is required*
-                                    </sub>
-                                    <sub *ngIf="signupData.controls['email'].invalid && signupData.controls['email'].dirty && signupData.controls['email'].errors?.['email']"
-                                        class="text-danger bg-transparent">
-                                        Email entered is invalid*
-                                    </sub>
-                                </div>
-                                <div class="mb-4">
-                                    <label class="form-label">Role</label>
-                                    <input class="form-control form-control-md" type="text" formControlName="roles"
-                                        placeholder="Enter Role" />
-                                    <sub *ngIf="signupData.controls['roles'].invalid && signupData.controls['roles'].dirty && signupData.controls['roles'].errors?.['required']"
-                                        class="text-danger bg-transparent">
-                                        Role is required*
-                                    </sub>
-                                    <sub *ngIf="signupData.controls['roles'].invalid && signupData.controls['roles'].dirty && signupData.controls['roles'].errors?.['roles']"
-                                        class="text-danger bg-transparent">
-                                        Role entered is invalid*
-                                    </sub>
-                                </div>
+    <div class="signin-signup d-flex justify-content-center m-4">
+        <button class="signin mb-0 px-3 py-2 rounded-3" [routerLink]="'/'">Sign In</button>
+        <div class="vl"></div>
+        <button class="signup mb-0 px-3 py-2 rounded-3" [routerLink]="'/signup'">Sign Up</button>
+    </div>
 
-                                <div class="d-grid gap-2 mt-3">
-                                    <button type="submit" [disabled]="!signupData.valid"
-                                        class="btn btn-md btn-primary">Add User</button>
-                                </div>
+    <div class="sign-form d-flex flex-column justify-content-center align-items-center">
 
-                                <div class="signin d-flex justify-content-center">
-                                    <p class="please-signin">Already have an account? </p><a type="button" [routerLink]="'/signin'">Sign In</a>.
-                                </div>
-                            </form>
+        <div class="col">
+            <div class="row">
+                <div class="col-md-6 col-sm-2">
+                    <div class="input-container mb-3">
+                        <div class="col">
+                            <label for="username" class="input-label">Username</label>
+                            <input id="username" class="form-control mr-sm-2 py-3" type="text"
+                                placeholder="Enter Username" aria-label="Search" formControlName="username">
+                        <sub *ngIf="signupData.controls['username'].invalid && signupData.controls['username'].dirty && signupData.controls['username'].errors?.['required']"
+                            class="text-danger bg-transparent">
+                            Username is required*
+                        </sub>
                         </div>
+                        <i class="fa fa-user mt-4" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-2">
+                    <div class="input-container mb-3">
+                        <div class="col">
+                            <label for="password" class="input-label">Password</label>
+                            <input id="password" class="form-control mr-sm-2 py-3" type="password"
+                                placeholder="Enter Password" aria-label="Search" formControlName="password">
+                            <sub *ngIf="signupData.controls['password'].invalid && signupData.controls['password'].dirty 
+                                && signupData.controls['password'].errors?.['required']"
+                                class="text-danger bg-transparent">
+                                Password required*
+                            </sub>
+                        </div>
+                        <i class="fa fa-key mt-4" aria-hidden="true"></i>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col mb-4">
+                <div class="input-container mb-3">
+                    <div class="col">
+                        <label for="email" class="input-label">Email</label>
+                        <input id="email" class="form-control mr-sm-2 py-3" type="text" placeholder="Enter Email"
+                            aria-label="Search" formControlName="email">
+                    </div>
+                    <i class="fa fa-user mt-4" aria-hidden="true"></i>
+                </div>
+            </div>
+
+
+            <div class="container my-3">
+                <div class="row">
+                    <div class="col-xs12 px-0 d-flex justify-content-center">
+
+                        <div id="tab" class="btn-group btn-group-justified" data-toggle="buttons">
+                            <a class="btn btn-default py-3 px-md-5 px-sm-4"
+                                [ngClass]="{'active': selectedCategory === 'buyer'}" (click)="selectCategory('buyer')">
+                                <input type="radio" name="category-selection" [(ngModel)]="selectedCategory"
+                                    value="buyer" formControlName="roles" />
+                                <span class="radio-button"></span>
+                                Buyer
+                            </a>
+                            <a class="btn btn-default py-3 px-md-5 px-sm-4"
+                                [ngClass]="{'active': selectedCategory === 'seller'}"
+                                (click)="selectCategory('seller')">
+                                <input type="radio" name="category-selection" [(ngModel)]="selectedCategory"
+                                    value="seller" formControlName="roles" />
+                                <span class="radio-button"></span>
+                                Seller
+                            </a>
+                        </div>
+
                     </div>
                 </div>
             </div>
+            <button type="submit" class="filter-button mt-4" mat-button aria-label="Contact the realtor" [disabled]="!signupData.valid">Sign
+                Up</button>
+
         </div>
     </div>
-</main>
+    <img src="assets/images/large-city-2.svg" alt="" class="city w-100">
+</form>

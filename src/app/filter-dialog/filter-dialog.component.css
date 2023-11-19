@@ -131,3 +131,34 @@ input[type="radio"]:checked+.radio-button:before {
 .filter-button:hover {
     background: #363636;
 }
+
+@media screen and (max-width: 800px) {
+    .btn-default {
+        width: 8rem;
+        font-size: 10px;
+    }
+
+    .content-description {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .btn-default {
+        width: 6rem;
+        font-size: 10px;
+    }
+
+    .content-description {
+        font-size: 12px;
+    }
+
+    h1.slider-text {
+        font-size: 14px;
+    }
+
+    .price-display {
+        padding-right: 10px !important;
+        padding-left: 10px !important;
+    }
+}

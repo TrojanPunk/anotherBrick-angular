@@ -7,6 +7,8 @@ import { BuyerComponent } from './buyer/buyer.component';
 import { SellerComponent } from './seller/seller.component';
 import { HomeComponent } from './home/home.component';
 import { PropertyDisplayComponent } from './property-display/property-display.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 const routes: Routes = [
   {
@@ -15,6 +17,10 @@ const routes: Routes = [
   },
   {
     path: "",
+    component: LandingPageComponent
+  },
+  {
+    path: "home",
     component: HomeComponent
   },
   {
@@ -42,8 +48,12 @@ const routes: Routes = [
     component: SellerComponent
   },
   {
-    path: "property/:id",
+    path: "home/property/:id",
     component: PropertyDisplayComponent
+  },
+  {
+    path: "wishlist",
+    component: WishlistComponent
   }
 ];
 

@@ -120,21 +120,24 @@ label {
     margin-left: 10px;
 }
 
-.bi, .fa {
+.bi,
+.fa {
     margin-top: 20px;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 input:disabled {
     opacity: 0.5;
     cursor: not-allowed;
-  }
-
-@media screen and(max-width: 850px) {
-    
 }
+
+.filter-button:disabled {
+    background-color: #404040;
+}
+
+@media screen and(max-width: 850px) {}

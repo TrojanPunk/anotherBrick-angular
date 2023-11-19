@@ -1,0 +1,13 @@
+.brand {
+    font-weight: 900;
+    font-size: 20px;
+    color: #e4303f;
+}
+
+footer {
+    background: #f7f7f7;
+}
+
+li:hover {
+    color: #e4303f !important;
+}
