@@ -9,8 +9,6 @@ import { HomeComponent } from './home/home.component';
 import { PropertyDisplayComponent } from './property-display/property-display.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
-import { authGuard } from 'src/shared/guards/auth.guard';
-import { authSellerGuard } from 'src/shared/guards/auth-seller.guard';
 
 const routes: Routes = [
   // {
@@ -23,8 +21,7 @@ const routes: Routes = [
   },
   {
     path: "home",
-    component: HomeComponent,
-    canActivate: [authGuard]
+    component: HomeComponent
   },
   {
     path: "signup",
@@ -48,8 +45,7 @@ const routes: Routes = [
   },
   {
     path: "seller",
-    component: SellerComponent,
-    canActivate: [authSellerGuard]
+    component: SellerComponent
   },
   {
     path: "home/property/:id",

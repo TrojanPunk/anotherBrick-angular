@@ -8,6 +8,7 @@ import { SigninDataService } from 'src/shared/services/signin-data.service';
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.css']
 })
+
 export class LandingPageComponent implements OnInit {
   signinForm: FormGroup = this.fb.group({});
   isWrong: boolean = false;
@@ -16,14 +17,6 @@ export class LandingPageComponent implements OnInit {
   constructor(private fb: FormBuilder, private signinDataService: SigninDataService, private router: Router) { }
 
   ngOnInit(): void {
-    if (localStorage.getItem('userId') != '' && localStorage.getItem('role') == 'buyer') {
-      window.location.href = "/home";
-    }
-
-    else if(localStorage.getItem('userId') != '' && localStorage.getItem('role') == 'seller') {
-      window.location.href = "/seller";
-    }
-
     this.isWrong = false;
     
       this.signinForm = this.fb.group({

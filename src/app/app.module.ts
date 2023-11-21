@@ -12,7 +12,6 @@ import { NavbarComponent } from '../shared/components/navbar/navbar.component';
 import { BuyerComponent } from './buyer/buyer.component';
 import { SellerComponent } from './seller/seller.component';
 import { AdminComponent } from './admin/admin.component';
-import { LoginInterceptor } from 'src/shared/services/login.interceptor';
 import { HomeComponent } from './home/home.component';
 import { CardComponent } from '../shared/components/card/card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
