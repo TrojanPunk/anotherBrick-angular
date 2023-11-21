@@ -11,12 +11,21 @@ import { SigninDataService } from 'src/shared/services/signin-data.service';
 export class LandingPageComponent implements OnInit {
   signinForm: FormGroup = this.fb.group({});
   isWrong: boolean = false;
+  userRole: string = '';
 
   constructor(private fb: FormBuilder, private signinDataService: SigninDataService, private router: Router) { }
 
   ngOnInit(): void {
+    if (localStorage.getItem('userId') != '' && localStorage.getItem('role') == 'buyer') {
+      window.location.href = "/home";
+    }
+
+    else if(localStorage.getItem('userId') != '' && localStorage.getItem('role') == 'seller') {
+      window.location.href = "/seller";
+    }
+
     this.isWrong = false;
-    localStorage.setItem('userId', '');
+    
       this.signinForm = this.fb.group({
         username: ['', [Validators.required]],
         password: ['', [Validators.required]]
@@ -31,6 +40,7 @@ export class LandingPageComponent implements OnInit {
         
         next: res => {
           localStorage.setItem('userId', res.id);
+          localStorage.setItem('role', res.roles);
 
           if (res && res.roles == 'buyer') {
             this.router.navigate(['/home']);

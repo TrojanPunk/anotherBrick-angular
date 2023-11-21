@@ -101,3 +101,7 @@ label {
 .filter-button:hover {
     background: linear-gradient(to right, #D70565, #e43054);
 }
+
+.filter-button:disabled {
+    opacity: 0.7;
+}

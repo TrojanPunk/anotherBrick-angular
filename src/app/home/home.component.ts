@@ -4,6 +4,7 @@ import { PropertyDataService } from 'src/shared/services/property-data.service';
 import { FilterDialogComponent } from '../filter-dialog/filter-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { authGuard } from 'src/shared/guards/auth.guard';
 
 @Component({
   selector: 'app-home',
@@ -23,6 +24,8 @@ export class HomeComponent {
   constructor(private propertyDataService: PropertyDataService, public dialog: MatDialog, private fb: FormBuilder) { }
 
   ngOnInit(): void {
+
+  
     this.searchProperty = this.fb.group({
       searching: ['']
     })

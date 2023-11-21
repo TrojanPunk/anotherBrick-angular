@@ -42,6 +42,11 @@ export class SellerComponent implements OnInit {
   constructor(private fb: FormBuilder, private propertyDataService: PropertyDataService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
+
+    if(!window.localStorage.getItem('userId')) {
+      window.location.href = "";
+    }
+
     this.sellForm = this.fb.group({
       price: [0, [Validators.required]],
       bhk: [0, [Validators.required]], baths: [0, [Validators.required]], parking: [0, [Validators.required]],
