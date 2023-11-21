@@ -23,6 +23,7 @@ import { SellerCardsComponent } from '../shared/components/seller-cards/seller-c
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { FooterComponent } from '../shared/components/footer/footer.component';
+import { LogoutDialogComponent } from '../shared/components/logout-dialog/logout-dialog.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { FooterComponent } from '../shared/components/footer/footer.component';
     SellerCardsComponent,
     LandingPageComponent,
     WishlistComponent,
-    FooterComponent
+    FooterComponent,
+    LogoutDialogComponent
   ],
   imports: [
     BrowserModule,

@@ -21,7 +21,7 @@
             <i class="fa fa-heart"></i>
             <p class="wishlist-text mb-0">Wishlist</p>
         </div>
-        <div class="logout d-flex align-items-center py-2 px-3" type="button" [routerLink]="'/'" *ngIf="checkNavbar() != '/'">
+        <div class="logout d-flex align-items-center py-2 px-3" type="button" (click)="openDialog('0ms', '0ms')" *ngIf="checkNavbar() != '/'">
             <i class="bi bi-box-arrow-right"></i>
         </div>
     </div>
