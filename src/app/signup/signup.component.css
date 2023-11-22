@@ -67,7 +67,7 @@
 
 label {
     font-family: 'Poppins';
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     margin-left: 10px;
 }
 
@@ -83,7 +83,7 @@ label {
 
 .city {
     position: absolute;
-    bottom: 60px;
+    bottom: 0px;
     z-index: -1;
 }
 
@@ -139,6 +139,10 @@ input[type="radio"]:checked+.radio-button:before {
 
 @media screen and(max-width: 576px) {
     .btn-default {
-        width: 8rem !important;
+        width: 60% !important;
+    }
+
+    .filter-button {
+        width: 10rem !important;
     }
 }

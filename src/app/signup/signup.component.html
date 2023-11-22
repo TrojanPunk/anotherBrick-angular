@@ -8,80 +8,80 @@
 
     <div class="sign-form d-flex flex-column justify-content-center align-items-center">
 
-        <div class="col">
-            <div class="row">
-                <div class="col-md-6 col-sm-2">
-                    <div class="input-container mb-3">
-                        <div class="col">
-                            <label for="username" class="input-label">Username</label>
-                            <input id="username" class="form-control mr-sm-2 py-3" type="text"
-                                placeholder="Enter Username" aria-label="Search" formControlName="username">
-                        <sub *ngIf="signupData.controls['username'].invalid && signupData.controls['username'].dirty && signupData.controls['username'].errors?.['required']"
-                            class="text-danger bg-transparent">
-                            Username is required*
-                        </sub>
-                        </div>
-                        <i class="fa fa-user mt-4" aria-hidden="true"></i>
-                    </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="input-container mb-3">
+                <div class="col">
+                    <label for="username" class="input-label">Username</label>
+                    <input id="username" class="form-control mr-sm-2 py-3" type="text" placeholder="Enter Username"
+                        aria-label="Search" formControlName="username">
+                    <sub *ngIf="signupData.controls['username'].invalid && signupData.controls['username'].dirty && signupData.controls['username'].errors?.['required']"
+                        class="text-danger bg-transparent">
+                        Username is required*
+                    </sub>
                 </div>
-                <div class="col-md-6 col-sm-2">
-                    <div class="input-container mb-3">
-                        <div class="col">
-                            <label for="password" class="input-label">Password</label>
-                            <input id="password" class="form-control mr-sm-2 py-3" type="password"
-                                placeholder="Enter Password" aria-label="Search" formControlName="password">
-                            <sub *ngIf="signupData.controls['password'].invalid && signupData.controls['password'].dirty 
+                <i class="fa fa-user mt-4" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="input-container mb-3">
+                <div class="col">
+                    <label for="password" class="input-label">Password</label>
+                    <input id="password" class="form-control mr-sm-2 py-3" type="password" placeholder="Enter Password"
+                        aria-label="Search" formControlName="password">
+                    <sub *ngIf="signupData.controls['password'].invalid && signupData.controls['password'].dirty 
                                 && signupData.controls['password'].errors?.['required']"
-                                class="text-danger bg-transparent">
-                                Password required*
-                            </sub>
-                        </div>
-                        <i class="fa fa-key mt-4" aria-hidden="true"></i>
-                    </div>
+                        class="text-danger bg-transparent">
+                        Password required*
+                    </sub>
                 </div>
-
+                <i class="fa fa-key mt-4" aria-hidden="true"></i>
             </div>
-            <div class="col mb-4">
-                <div class="input-container mb-3">
-                    <div class="col">
-                        <label for="email" class="input-label">Email</label>
-                        <input id="email" class="form-control mr-sm-2 py-3" type="text" placeholder="Enter Email"
-                            aria-label="Search" formControlName="email">
-                    </div>
-                    <i class="fa fa-user mt-4" aria-hidden="true"></i>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            <div class="input-container mb-3">
+                <div class="col">
+                    <label for="email" class="input-label">Email</label>
+                    <input id="email" class="form-control mr-sm-2 py-3" type="text" placeholder="Enter Email"
+                        aria-label="Search" formControlName="email">
                 </div>
+                <i class="fa fa-user mt-4" aria-hidden="true"></i>
             </div>
-
-
-            <div class="container my-3">
-                <div class="row">
-                    <div class="col-xs12 px-0 d-flex justify-content-center">
-
-                        <div id="tab" class="btn-group btn-group-justified" data-toggle="buttons">
-                            <a class="btn btn-default py-3 px-md-5 px-sm-4"
-                                [ngClass]="{'active': selectedCategory === 'buyer'}" (click)="selectCategory('buyer')">
-                                <input type="radio" name="category-selection" [(ngModel)]="selectedCategory"
-                                    value="buyer" formControlName="roles" />
-                                <span class="radio-button"></span>
-                                Buyer
-                            </a>
-                            <a class="btn btn-default py-3 px-md-5 px-sm-4"
-                                [ngClass]="{'active': selectedCategory === 'seller'}"
-                                (click)="selectCategory('seller')">
-                                <input type="radio" name="category-selection" [(ngModel)]="selectedCategory"
-                                    value="seller" formControlName="roles" />
-                                <span class="radio-button"></span>
-                                Seller
-                            </a>
-                        </div>
-
+        </div>
+        <div class="container my-3">
+            <div class="row">
+                <div class="col-xs12 px-0 d-flex justify-content-center">
+    
+                    <div id="tab" class="btn-group btn-group-justified w-50" data-toggle="buttons">
+                        <a class="btn btn-default py-3 px-md-5 px-sm-4" [ngClass]="{'active': selectedCategory === 'buyer'}"
+                            (click)="selectCategory('buyer')">
+                            <input type="radio" name="category-selection" [(ngModel)]="selectedCategory" value="buyer"
+                                formControlName="roles" />
+                            <span class="radio-button"></span>
+                            Buyer
+                        </a>
+                        <a class="btn btn-default py-3 px-md-5 px-sm-4"
+                            [ngClass]="{'active': selectedCategory === 'seller'}" (click)="selectCategory('seller')">
+                            <input type="radio" name="category-selection" [(ngModel)]="selectedCategory" value="seller"
+                                formControlName="roles" />
+                            <span class="radio-button"></span>
+                            Seller
+                        </a>
                     </div>
+    
                 </div>
             </div>
-            <button type="submit" class="filter-button mt-4" mat-button aria-label="Contact the realtor" [disabled]="!signupData.valid">Sign
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <button type="submit" class="filter-button mt-4" mat-button aria-label="Contact the realtor"
+                [disabled]="!signupData.valid">Sign
                 Up</button>
-
         </div>
     </div>
+
+
+
+
+
     <img src="assets/images/large-city-2.svg" alt="" class="city w-100">
 </form>

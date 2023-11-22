@@ -126,6 +126,10 @@ img {
     background: linear-gradient(to top, rgb(33, 33, 33, 1), transparent);
 }
 
+.favorites-texts {
+    align-items: start;
+}
+
 .favorites-text {
     font-family: 'Montserrat';
     font-weight: 600;
@@ -150,6 +154,16 @@ mat-spinner {
     font-size: 16px;
     font-family: 'Montserrat';
     font-weight: 500;
+}
+
+.gif {
+    width: 20%;
+    background: transparent;
+}
+
+.no-result-text {
+    font-family: 'Montserrat';
+    text-align: center;
 }
 
 :host::ng-deep .mdc-circular-progress__indeterminate-circle-graphic {
@@ -195,6 +209,8 @@ mat-spinner {
         width: 100%;
         margin-top: 20px;
         text-align: center;
+        align-items: center;
+        justify-content: center;
     }
 
     .favorites-sub {

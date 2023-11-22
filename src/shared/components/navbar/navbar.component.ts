@@ -9,6 +9,7 @@ import { LogoutDialogComponent } from '../logout-dialog/logout-dialog.component'
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  showNavbar: boolean = false;
   constructor(private router: Router, public dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -19,6 +20,11 @@ export class NavbarComponent {
     const URL = this.router.url;
     return URL
   }
+
+  toggleNavbar() {
+    this.showNavbar = !this.showNavbar;
+  }
+  
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
     this.dialog.open(LogoutDialogComponent, {
