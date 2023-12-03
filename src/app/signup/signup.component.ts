@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
@@ -10,9 +10,9 @@ import { SignupDataService } from 'src/shared/services/signup-data.service';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignupComponent {
+export class SignupComponent implements OnInit {
   signupData: FormGroup = this.fb.group({})
-  selectedCategory: string = 'buyer';
+  selectedCategory = 'buyer';
   postSignupData: ISignupData = {
     id: "",
     username: "",
@@ -25,6 +25,13 @@ export class SignupComponent {
   constructor(private signupDataService: SignupDataService, private fb: FormBuilder, private router: Router, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
+    if(window.innerWidth > 576) {
+      window.scrollTo(0, 50);
+    }
+    else {
+      scrollTo(0, 0);
+    }
+    
     this.signupData = this.fb.group({
       username: ["", [Validators.required]],
       email: ["", Validators.required],
@@ -43,12 +50,10 @@ export class SignupComponent {
           console.log(res);
           
         },  
-        error: error => console.log("code works!")
+        error: error => console.log(error)
       },
     );
     this.openSnackBar(POST_DATA.username)
-    setTimeout(() => {
-    }, 3000);
     this.router.navigate(['/']);
   }
 

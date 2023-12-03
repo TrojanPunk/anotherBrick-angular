@@ -324,9 +324,10 @@ mat-spinner {
 }
 
 .loading {
-    font-size: 16px;
+    font-size: 12px;
     font-family: 'Montserrat';
     font-weight: 500;
+    color: #e4303f;
 }
 
 :host::ng-deep .mdc-circular-progress__indeterminate-circle-graphic {
@@ -340,6 +341,20 @@ mat-spinner {
 
 iframe {
     border-radius: 20px;
+}
+
+.insurance {
+    font-family: 'Montserrat';
+}
+
+.insurance {
+    font-size: 12px;
+}
+
+.website {
+    text-decoration: none;
+    color: #e4303f;
+    font-weight: 600;
 }
 
 @media screen and(max-width: 1000px) {

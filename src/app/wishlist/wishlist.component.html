@@ -1,7 +1,7 @@
 <div class="main-container d-flex flex-column align-items-center justify-content-center">
     <div class="carousel-container d-flex align-items-center mb-5 border-bottom pb-3">
         <div id="carouselExampleAutoplaying" class="carousel slide w-50 mx-4" data-bs-ride="carousel">
-            <div class="carousel-inner h-50">
+            <div *ngIf="!loading" class="carousel-inner h-50">
                 <div class="carousel-item active h-50">
                     <img src="https://cdn.onekindesign.com/wp-content/uploads/2021/01/Craftsman-Style-Home-Raykon-Construction-01-1-Kindesign.jpg"
                         class="d-block" alt="...">
@@ -56,10 +56,9 @@
     </div>
 
     <div class="container ms-3 me-3 pb-4">
-        <div class="spinner-container w-100 d-flex justify-content-center align-items-center" *ngIf="loading">
-            <div class="spinner d-flex align-items-center">
-                <mat-spinner diameter="40"></mat-spinner>
-                <p class="loading mb-0">Loading</p>
+        <div class="skeleton-property-loader" *ngIf="loading">
+            <div class="cards skeleton-cards d-flex-flex-column">
+                <app-skeleton-card *ngFor="let load of [1,1,1,1,1]"></app-skeleton-card>
             </div>
         </div>
         <div class="cards d-flex flex-column" *ngIf="!loading">
@@ -70,10 +69,10 @@
                     [id]="property.id" [area]="property.area">
                 </app-card>
             </div>
-            
+
         </div>
         <div class="no-results d-flex flex-column justify-content-center align-items-center"
-            *ngIf="displayProperties.length == 0 && !loading">
+            *ngIf="displayProperties.length === 0 && !loading">
             <img src="assets/images/empty-wishlist.svg" alt="" class="gif">
             <h2 class="no-result-text px-4">Ah! You do not have properties in your wishlist</h2>
         </div>

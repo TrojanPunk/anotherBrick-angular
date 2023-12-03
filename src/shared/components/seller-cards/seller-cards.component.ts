@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./seller-cards.component.css']
 })
 export class SellerCardsComponent {
-  @Input() image: string = "";
-  @Input() title: string = "";
-  @Input() subtitle: string = "";
+  @Input() image = "";
+  @Input() title = "";
+  @Input() subtitle = "";
 }

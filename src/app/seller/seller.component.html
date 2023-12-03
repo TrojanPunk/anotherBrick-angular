@@ -298,6 +298,14 @@
                 </div>
             </div>
         </div>
+
+        <div class="img-uploads d-flex flex-column align-items-center">
+            <label for="file-upload" class="file-upload-label">
+                <i class="bi bi-cloud-upload"></i>
+            </label>
+            <input id="file-upload" class="upload-images mb-5" type="file" (change)="handleImageUpload($event)" />
+        </div>
+
         <button type="submit" class="filter-button mb-4" mat-button matTooltip="Upload Details"
             aria-label="It filters the properties based on the user preferences"
             [disabled]="!sellForm.valid">Submit</button>

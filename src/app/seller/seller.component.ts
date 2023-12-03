@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { PATTERN, PROPERTY_IMAGES, sellerCardInfo } from 'src/shared/models/constant';
-import { IPostPropertyData, IPropertyData } from 'src/shared/models/interface';
+import { IPostPropertyData, ISignupData } from 'src/shared/models/interface';
 import { PropertyDataService } from 'src/shared/services/property-data.service';
+import { SignupDataService } from 'src/shared/services/signup-data.service';
 
 @Component({
   selector: 'app-seller',
@@ -12,7 +13,7 @@ import { PropertyDataService } from 'src/shared/services/property-data.service';
 })
 export class SellerComponent implements OnInit {
   sellForm: FormGroup = this.fb.group({});
-  sellerCardInfo: any = sellerCardInfo
+  sellerCardInfo = sellerCardInfo;
 
   postSellPropertyData: IPostPropertyData[] = [{
     propertyName: '',
@@ -35,11 +36,11 @@ export class SellerComponent implements OnInit {
     area: 0,
     price: 0,
     ratings: parseFloat((Math.random() < 0.5 ? ((1 - Math.random()) * (4.7 - 3.5) + 3.5) : (Math.random() * (4.7 - 3.5) + 3.5)).toFixed(1)),
-    images: this.randomImageSet(),
+    images: [],
     category: ''
   }];
 
-  constructor(private fb: FormBuilder, private propertyDataService: PropertyDataService, private _snackBar: MatSnackBar) { }
+  constructor(private fb: FormBuilder, private propertyDataService: PropertyDataService, private _snackBar: MatSnackBar, private signupDataService: SignupDataService) { }
 
   ngOnInit(): void {
 
@@ -85,6 +86,18 @@ export class SellerComponent implements OnInit {
         this.openSnackBar();
       }
     })
+  }
+
+  handleImageUpload(event: any): void {
+    const files = event.target.files;
+    const reader = new FileReader();
+    reader.onload = () => {
+      const base64String = reader.result?.toString().split(',')[1];
+      if (base64String) {
+        this.postSellPropertyData[0].images.push(`data:image/jpeg;base64,${base64String}`);
+      }
+    };
+    reader.readAsDataURL(files[0]);
   }
 
   disableInputs(event: any): void {

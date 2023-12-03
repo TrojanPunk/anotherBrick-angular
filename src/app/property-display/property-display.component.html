@@ -1,7 +1,7 @@
 <div class="container w-100 d-flex justify-content-center align-items-center" *ngIf="loading">
-    <div class="spinner d-flex align-items-center">
-        <mat-spinner diameter="40"></mat-spinner>
-        <p class="loading mb-0">Loading</p>
+    <div class="spinner d-flex flex-column align-items-center justify-content-center">
+        <img src="assets/images/house-loader.gif" alt="" class="house-loader w-25 rounded-4">
+        <p class="loading">Building the property</p>
     </div>
 </div>
 
@@ -70,7 +70,7 @@
             <h1 class="property-details-heading mb-4">Property Details</h1>
 
             <div class="card-text features d-flex flex-wrap justify-content-center mb-5"
-                *ngIf="propertyData.category != 'commercial'">
+                *ngIf="propertyData.category !== 'commercial'">
                 <div class="feature-details d-flex flex-column justify-content-center align-items-center p-4">
                     <h3 class="feature-metric mb-0">{{propertyData.features.bhk}}</h3>
                     <span class="feature d-flex align-items-center px-3 rounded-3">
@@ -114,13 +114,9 @@
                 </div>
             </div>
 
-            <!-- <div class="area-section">
-                <div class="area d-flex flex-column justify-content-center align-items-center">
-                    <h2 class="area-text mb-2">Area measures upto</h2>
-                    <h1 class="area-metric">{{propertyData.area}} <span class="ft"> sq. ft.</span></h1>
-                </div>
-            </div> -->
-
+            <div class="know-more">
+                <h4 class="insurance">To know more about the insurance covered visit <a href="https://www.chubb.com/us-en/business-insurance/property-services.html" type="button" target="_blank" class="website">Chubb</a></h4>
+            </div>
         </div>
 
         <!-- Seller Details  -->
@@ -132,7 +128,7 @@
                     </div>
 
                     <div class="avatar d-flex flex-column align-items-center mt-3">
-                        <img [src]="randomImage()" alt="" class="avatar-img d-flex align-items-center">
+                        <img [src]="avatar" alt="" class="avatar-img d-flex align-items-center">
                         <h2 class="seller-name">{{propertyData.seller.sellerName}} <i class="fa fa-certificate"></i>
                         </h2>
                     </div>
@@ -147,13 +143,13 @@
                         </div>
                         <div class="seller-rating d-flex flex-column justify-content-center align-items-center">
                             <div class="star-rating d-flex align-items-center" id="star">
-                                <h1 class="rating ms-1 mb-0">{{randomReviews()}}</h1>
+                                <h1 class="rating ms-1 mb-0">{{reviews}}</h1>
                             </div>
                             <h3 class="rating-feedback">Reviews</h3>
                         </div>
                         <div class="seller-rating d-flex flex-column justify-content-center align-items-center">
                             <div class="star-rating d-flex align-items-center" id="star">
-                                <h1 class="rating ms-1 mb-0">{{randomYears()}}</h1>
+                                <h1 class="rating ms-1 mb-0">{{years}}</h1>
                             </div>
                             <h3 class="rating-feedback">Years</h3>
                         </div>
@@ -177,7 +173,7 @@
                     </div>
 
                     <button type="submit" class="filter-button" mat-button
-                        aria-label="Contact the realtor">Contact</button>
+                        aria-label="Contact the realtor" (click)="mailTo()">Contact</button>
 
                 </div>
             </div>

@@ -4,7 +4,7 @@
         <h5 class="card-title mb-3 d-flex align-items-center">{{propertyName}} <span
                 [ngClass]="category === 'commercial' ? 'badge bg-primary' : category === 'residential' ? 'badge bg-success' : 'badge bg-warning'"
                 class="property-category">{{category.toUpperCase()}}</span></h5>
-        <p class="card-text features d-flex flex-wrap" *ngIf="category != 'commercial'">
+        <p class="card-text features d-flex flex-wrap" *ngIf="category !== 'commercial'">
             <span class="feature d-flex align-items-center px-3 py-2 rounded-3">
                 <i class="fa fa-bed feature-icon" aria-hidden="true"></i>
                 <p class="feature-text mb-0">{{features.bhk}} BHK</p>
@@ -19,7 +19,8 @@
             </span>
         </p>
         <p class="card-text d-flex align-items-center area">
-            Area of <strong class="strong px-2"> {{area}} sq. ft.</strong><span *ngIf="category != 'commercial'" class="bath-count">●  {{randomBaths(features.baths)}} private attached bathroom</span>
+            Area of <strong class="strong px-2"> {{area}} sq. ft.</strong><span *ngIf="category !== 'commercial'"
+                class="bath-count">● {{features.baths === 1 ? 1 : features.baths - 1}} private attached bathroom</span>
         </p>
         <p class="card-text d-flex align-items-center ratings mb-4">
             <i class="bi bi-star-fill"></i>
@@ -32,8 +33,8 @@
                 <p class="card-text city">{{location.city}} - {{location.pincode}}</p>
             </div>
 
-            <i *ngIf="!isLiked" class="bi bi-heart" type="button" (click)="likeButton(id)"></i>
-            <i *ngIf="isLiked" class="bi bi-heart-fill" type="button" (click)="likeButton(id)"></i>
+            <i *ngIf="!isLiked" class="bi bi-heart" type="button" (click)="likeButton()"></i>
+            <i *ngIf="isLiked" class="bi bi-heart-fill" type="button" (click)="likeButton()"></i>
 
         </div>
     </div>

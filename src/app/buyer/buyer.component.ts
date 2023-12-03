@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { PropertyDataService } from 'src/shared/services/property-data.service';
 
@@ -7,7 +7,7 @@ import { PropertyDataService } from 'src/shared/services/property-data.service';
   templateUrl: './buyer.component.html',
   styleUrls: ['./buyer.component.css']
 })
-export class BuyerComponent {
+export class BuyerComponent implements OnInit {
   userId: string | null = "";
 
   ngOnInit(): void {
@@ -18,7 +18,7 @@ export class BuyerComponent {
   constructor(private activatedRoute: ActivatedRoute, private propertyDataService: PropertyDataService) { }
 
   getUserById(): void {
-    this.activatedRoute.paramMap.subscribe((params:ParamMap) => {
+    this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
       this.userId = params.get('id');
     });
   }
@@ -29,7 +29,7 @@ export class BuyerComponent {
         console.log(res);
       },
 
-      error: err => alert("There has been an error!")
+      error: err => alert(err)
     })
   }
 }

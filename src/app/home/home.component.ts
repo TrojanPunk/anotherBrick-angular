@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { IFavoritesData, IPropertyData } from 'src/shared/models/interface';
 import { PropertyDataService } from 'src/shared/services/property-data.service';
 import { FilterDialogComponent } from '../filter-dialog/filter-dialog.component';
@@ -10,9 +10,18 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit, OnDestroy {
+  title = 'ngx-skeleton-loader-demo';
+
+  animation = 'pulse';
+  contentLoaded = false;
+  count = 2;
+  widthHeightSizeInPixels = 50;
+
+  intervalId: number | null = null;
+
   searchProperty: FormGroup = this.fb.group({});
-  loading: boolean = true;
+  loading = true;
   propertyData: IPropertyData[] = [];
   displayProperties: IPropertyData[] = [];
   favoritesProperties: IFavoritesData = {
@@ -24,23 +33,42 @@ export class HomeComponent {
 
   ngOnInit(): void {
 
-  
+
     this.searchProperty = this.fb.group({
       searching: ['']
     })
 
+    this.searchProperty.valueChanges.subscribe(value => {
+      console.log(value);
+      this.searchingProperty(value.searching ?? '');
+    })
+
     this.loading = true;
+
+    this.intervalId = window.setInterval(() => {
+      this.animation = this.animation === 'pulse' ? 'progress-dark' : 'pulse';
+      this.count = this.count === 2 ? 5 : 2;
+      this.widthHeightSizeInPixels =
+        this.widthHeightSizeInPixels === 50 ? 100 : 50;
+    }, 5000);
+
     this.gettingData();
     this.fetchPropertyData();
+  }
+
+  ngOnDestroy(): void {
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+    }
   }
 
   displayCategory(category: string) {
     this.displayProperties = this.propertyData.filter((element: IPropertyData) => element.category === category);
   }
 
-  searchingProperty(name: any) {
-    const targetName : string = (name.target.value).toLowerCase();
-    this.displayProperties = this.propertyData.filter((element : IPropertyData) =>
+  searchingProperty(name: string) {
+    const targetName: string = (name).toLowerCase();
+    this.displayProperties = this.propertyData.filter((element: IPropertyData) =>
       element.propertyName.toLowerCase().startsWith(targetName))
   }
 
@@ -50,7 +78,10 @@ export class HomeComponent {
         this.propertyData = res;
         this.propertyDataService.filteredPropertyDataSubject.next(this.propertyData);
         this.displayProperties = this.propertyData;
-        this.loading = false;
+        setTimeout(() => {
+          
+          this.loading = false;
+        }, 1000);
       },
 
       error: err => console.log(err)
@@ -71,5 +102,4 @@ export class HomeComponent {
       exitAnimationDuration,
     });
   }
-  
 }

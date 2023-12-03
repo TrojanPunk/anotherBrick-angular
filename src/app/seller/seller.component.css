@@ -125,6 +125,66 @@ label {
     margin-top: 20px;
 }
 
+.bi-camera {
+    color: #e4303f;
+    font-size: 24px;
+}
+
+/* .upload-images {
+    background: #ffe6e8;
+    border: 2px dashed #e4303f;
+    width: 10rem;
+    height: 10rem;
+}
+
+.upload-images:active {
+    background: #ffdadd;
+    border: 2px dashed #e4303f;
+} */
+
+.upload-images::-webkit-file-upload-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat';
+    padding: 10px 20px;
+    background: #e4303f;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+.upload-images {
+    width: 122px;
+}
+
+.file-upload-label {
+    display: inline-block;
+    cursor: pointer;
+    background: #ffe6e8;
+    border: 2px dashed #e4303f;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 10px;
+    margin-left: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.file-upload-label i {
+    color: #e4303f;
+    font-size: 40px;
+}
+
+.file-upload::-webkit-file-upload-button {
+    
+}
+
+.img-uploads {
+    gap: 20px;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;

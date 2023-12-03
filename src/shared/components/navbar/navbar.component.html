@@ -1,46 +1,14 @@
-<!-- <nav
-    [ngClass]="checkNavbar() != '/' ? 'navbar navbar-expand-lg navbar-light bg-light px-4 py-3 mb-3' : 'navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-center px-4 py-3 mb-3'">
-    <a *ngIf="checkNavbar() != '/seller'" class="navbar-brand" [routerLink]="['/home']">anotherBrick</a>
-    <a *ngIf="checkNavbar() == '/seller'" class="navbar-brand" [routerLink]="['/seller']">anotherBrick</a>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse d-flex justify-content-center pe-5" id="navbarNav"
-        *ngIf="checkNavbar() != '/'">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Who We Are</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Contact Us</a>
-            </li>
-        </ul>
-        <div class="actions d-flex align-items-center">
-            <div class="wishlist d-flex align-items-center py-2 px-3" type="button" *ngIf="checkNavbar() != '/'">
-                <i class="fa fa-heart"></i>
-                <p class="wishlist-text mb-0">Wishlist</p>
-            </div>
-            <div class="logout d-flex align-items-center py-2 px-3" type="button" (click)="openDialog('0ms', '0ms')"
-                *ngIf="checkNavbar() != '/'">
-                <i class="bi bi-box-arrow-right"></i>
-            </div>
-        </div>
-    </div>
-</nav> -->
-
 <nav
-    [ngClass]="checkNavbar() != '/' ? 'navbar navbar-expand-lg navbar-light bg-light px-4 py-3 mb-3' : 'navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-center px-4 py-3 mb-3'">
+    [ngClass]="checkNavbar() !== '/' ? 'navbar navbar-expand-lg navbar-light bg-light px-4 py-3 mb-3' : 'navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-center px-4 py-3 mb-3'">
 
-    <div [ngClass]="checkNavbar() != '/' ? 'container-fluid' : 'container-fluid d-flex justify-content-center'">
-        <a *ngIf="checkNavbar() != '/seller'" class="navbar-brand" [routerLink]="['/home']">anotherBrick</a>
-        <a *ngIf="checkNavbar() == '/seller'" class="navbar-brand" [routerLink]="['/seller']">anotherBrick</a>
+    <div [ngClass]="checkNavbar() !== '/' ? 'container-fluid' : 'container-fluid d-flex justify-content-center'">
+        <a *ngIf="checkNavbar() !== '/seller'" class="navbar-brand" [routerLink]="['/home']">anotherBrick</a>
+        <a *ngIf="checkNavbar() === '/seller'" class="navbar-brand" [routerLink]="['/seller']">anotherBrick</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent" *ngIf="checkNavbar() != '/'">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" *ngIf="checkNavbar() !== '/'">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page">Who we are</a>
@@ -50,13 +18,13 @@
                 </li>
             </ul>
             <div class="actions d-flex align-items-center">
-                <div class="wishlist d-flex align-items-center py-2 px-3" type="button" *ngIf="checkNavbar() != '/'"
+                <div class="wishlist d-flex align-items-center py-2 px-3" type="button" *ngIf="checkNavbar() !== '/'"
                     [routerLink]="['/wishlist']">
                     <i class="fa fa-heart"></i>
                     <p class="wishlist-text mb-0">Wishlist</p>
                 </div>
                 <div class="logout d-flex align-items-center py-2 px-3" type="button" (click)="openDialog('0ms', '0ms')"
-                    *ngIf="checkNavbar() != '/'">
+                    *ngIf="checkNavbar() !== '/'">
                     <i class="bi bi-box-arrow-right"></i>
                 </div>
             </div>

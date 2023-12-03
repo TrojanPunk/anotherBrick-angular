@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { SigninDataService } from 'src/shared/services/signin-data.service';
 
 @Component({
@@ -11,12 +11,19 @@ import { SigninDataService } from 'src/shared/services/signin-data.service';
 
 export class LandingPageComponent implements OnInit {
   signinForm: FormGroup = this.fb.group({});
-  isWrong: boolean = false;
-  userRole: string = '';
+  isWrong = false;
+  userRole = '';
 
   constructor(private fb: FormBuilder, private signinDataService: SigninDataService, private router: Router) { }
 
   ngOnInit(): void {
+    if(window.innerWidth > 576) {
+      window.scrollTo(0, 50);
+    }
+    else {
+      scrollTo(0, 0);
+    }
+
     this.isWrong = false;
     
       this.signinForm = this.fb.group({

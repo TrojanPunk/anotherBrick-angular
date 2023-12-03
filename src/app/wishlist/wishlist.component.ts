@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { IFavoritesData, IPropertyData } from 'src/shared/models/interface';
 import { PropertyDataService } from 'src/shared/services/property-data.service';
@@ -10,8 +10,17 @@ import { SignupDataService } from 'src/shared/services/signup-data.service';
   templateUrl: './wishlist.component.html',
   styleUrls: ['./wishlist.component.css']
 })
-export class WishlistComponent {
-  loading: boolean = true;
+export class WishlistComponent implements OnInit, OnDestroy {
+  title = 'ngx-skeleton-loader-demo';
+
+  animation = 'pulse';
+  contentLoaded = false;
+  count = 2;
+  widthHeightSizeInPixels = 50;
+
+  intervalId: number | null = null;
+
+  loading = true;
   propertyData: IPropertyData[] = [];
   displayProperties: IPropertyData[] = [];
   propertyIds: string[] = [];
@@ -24,7 +33,21 @@ export class WishlistComponent {
 
   ngOnInit(): void {
     this.loading = true;
+
+    this.intervalId = window.setInterval(() => {
+      this.animation = this.animation === 'pulse' ? 'progress-dark' : 'pulse';
+      this.count = this.count === 2 ? 5 : 2;
+      this.widthHeightSizeInPixels =
+        this.widthHeightSizeInPixels === 50 ? 100 : 50;
+    }, 5000);
+
     this.getUserData();
+  }
+
+  ngOnDestroy(): void {
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+    }
   }
 
   displayCategory(category: string) {
@@ -37,7 +60,10 @@ export class WishlistComponent {
         this.propertyData = res;
         this.propertyDataService.filteredPropertyDataSubject.next(this.propertyData);
         this.displayProperties = this.propertyData;
-        this.loading = false;
+
+        setTimeout(() => {
+          this.loading = false;
+        }, 2000);
       },
 
       error: err => console.log(err)
@@ -45,7 +71,7 @@ export class WishlistComponent {
   }
 
   getUserData(): void {
-    const ID = localStorage.getItem("userId")!;
+    const ID = localStorage.getItem("userId");
 
     this.signupDataService.getUserById(ID).subscribe({
       next: res => {
@@ -73,7 +99,11 @@ export class WishlistComponent {
         error: err => console.log(err)
       })
     });
-    this.loading = false;
+
+    setTimeout(() => {
+      
+      this.loading = false;
+    }, 1000);
   }
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {

@@ -32,14 +32,17 @@
                 <i class="fa fa-key mt-4" aria-hidden="true"></i>
 
             </div>
-            <sub *ngIf="isWrong"
-                class="text-danger bg-transparent">
+            <sub *ngIf="isWrong" class="text-danger bg-transparent">
                 Username or password is wrong*
             </sub>
-            <button type="submit" class="filter-button mt-4" mat-button aria-label="Contact the realtor"  [disabled]="!signinForm.valid">Sign
+            <button type="submit" class="filter-button mt-4" mat-button aria-label="Contact the realtor"
+                [disabled]="!signinForm.valid">Sign
                 In</button>
         </div>
     </div>
 
-    <img src="assets/images/large-city-2.svg" alt="" class="city w-100">
+    <div class="city-scroll mb-5">
+        <img src="assets/images/large-city-2.svg" alt="" class="city w-100 mb-5" style="--t:20s">
+        <img src="assets/images/large-city-2.svg" alt="" class="city w-100 mb-5" style="--t:20s">
+    </div>
 </form>

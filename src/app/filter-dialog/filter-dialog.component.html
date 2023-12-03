@@ -1,7 +1,7 @@
 <div class="header d-flex justify-content-center">
     <h1 mat-dialog-title class="filter mb-0">Filters</h1>
 </div>
-<form [formGroup]="filterData" mat-dialog-content class="content pt-0" (submit)="filterPropertyData()" novalidate>
+<form [formGroup]="filterData" *ngIf="filterData" mat-dialog-content class="content pt-0" (submit)="filterPropertyData()" novalidate>
     <h1 mat-dialog-title class="content-heading px-0 pb-0 mb-0">Type of property</h1>
     <p class="content-description mb-4">
         Search entire homes, offices or places to rent

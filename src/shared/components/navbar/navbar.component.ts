@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { LogoutDialogComponent } from '../logout-dialog/logout-dialog.component';
@@ -8,8 +8,8 @@ import { LogoutDialogComponent } from '../logout-dialog/logout-dialog.component'
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
-  showNavbar: boolean = false;
+export class NavbarComponent implements OnInit {
+  showNavbar = false;
   constructor(private router: Router, public dialog: MatDialog) { }
 
   ngOnInit(): void {

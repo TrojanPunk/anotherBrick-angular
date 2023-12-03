@@ -1,8 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Route, Router } from '@angular/router';
-import { IFavoritesData, IFeatures, ILocation, IPropertyData, ISeller, ISignupData } from 'src/shared/models/interface';
+import { Router } from '@angular/router';
+import { IFeatures, ILocation, IPropertyData, ISeller, ISignupData } from 'src/shared/models/interface';
 import { FavoriteDataService } from 'src/shared/services/favorite-data.service';
-import { PropertyDataService } from 'src/shared/services/property-data.service';
 import { SignupDataService } from 'src/shared/services/signup-data.service';
 
 @Component({
@@ -12,18 +11,18 @@ import { SignupDataService } from 'src/shared/services/signup-data.service';
 })
 export class CardComponent {
 
-  @Input() id: string = '';
-  @Input() propertyName: string = '';
+  @Input() id = '';
+  @Input() propertyName = '';
   @Input() seller!: ISeller;
-  @Input() price: number = 0.0;
-  @Input() ratings: number = 4.0;
+  @Input() price = 0.0;
+  @Input() ratings = 4.0;
   @Input() features!: IFeatures;
   @Input() location!: ILocation;
   @Input() images: string[] = [];
-  @Input() category: string = '';
-  @Input() area: number = 0;
+  @Input() category = '';
+  @Input() area = 0;
 
-  isLiked: boolean = false;
+  isLiked = false;
   favoritePropertyData: IPropertyData = {
     propertyName: '',
     seller: {
@@ -58,7 +57,7 @@ export class CardComponent {
     return Math.floor(Math.random() * baths) + 1
   }
 
-  likeButton(id: string): void {
+  likeButton(): void {
     if (!this.isLiked) {
       this.getUserData();
     }
@@ -67,7 +66,7 @@ export class CardComponent {
   }
 
   getUserData(): void {
-    const ID = localStorage.getItem("userId")!;
+    const ID: string | null = localStorage.getItem("userId");
 
     this.signupDataService.getUserById(ID).subscribe({
       next: res => {
@@ -79,7 +78,7 @@ export class CardComponent {
     })
   }
 
-  putFavoritesById(putData: ISignupData, userId: string): void {
+  putFavoritesById(putData: ISignupData, userId: string| null): void {
     this.signupDataService.putFavoritesData(putData, userId).subscribe({
       next: res => console.log(res),
       error: err => console.log(err)

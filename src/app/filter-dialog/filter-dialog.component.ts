@@ -1,10 +1,9 @@
-import { Component, Inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { MatSlider } from '@angular/material/slider';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { IFilterData, IPropertyData } from 'src/shared/models/interface';
+import { IPropertyData } from 'src/shared/models/interface';
 import { PropertyDataService } from 'src/shared/services/property-data.service';
 
 @Component({
@@ -14,11 +13,11 @@ import { PropertyDataService } from 'src/shared/services/property-data.service';
 })
 export class FilterDialogComponent implements OnInit, OnDestroy {
   filterData: FormGroup = this.fb.group({});
-  selectedCategory: string = 'residential';
-  minPrice: number = 4000;
-  maxPrice: number = 5000000;
+  selectedCategory = 'residential';
+  minPrice = 4000;
+  maxPrice = 5000000;
   subscriptions: Subscription[] = [];
-  selectedArea: number = 200;
+  selectedArea = 200;
   postFilterData: IPropertyData[] = [{
     propertyName: '',
     seller: {
@@ -65,6 +64,7 @@ export class FilterDialogComponent implements OnInit, OnDestroy {
     });
 
     const formSub = this.filterData.valueChanges.subscribe(value => {
+      console.log();
     });
   }
 
@@ -109,7 +109,6 @@ export class FilterDialogComponent implements OnInit, OnDestroy {
   }
 
   getFilteredData(getFilteredData: IPropertyData[]): void {
-    debugger
     this.propertyDataService.getFilteredData(getFilteredData).subscribe({
       next: (res) => {
         

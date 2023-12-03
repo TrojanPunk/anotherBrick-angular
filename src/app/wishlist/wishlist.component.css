@@ -186,6 +186,8 @@ mat-spinner {
     }
 }
 
+
+
 @media screen and (max-width: 800px) {
     .controls {
         gap: 20px;
