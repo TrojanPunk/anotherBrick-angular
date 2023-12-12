@@ -115,7 +115,9 @@
             </div>
 
             <div class="know-more">
-                <h4 class="insurance">To know more about the insurance covered visit <a href="https://www.chubb.com/us-en/business-insurance/property-services.html" type="button" target="_blank" class="website">Chubb</a></h4>
+                <h4 class="insurance">To know more about the insurance covered visit <a
+                        href="https://www.chubb.com/us-en/business-insurance/property-services.html" type="button"
+                        target="_blank" class="website">Chubb</a></h4>
             </div>
         </div>
 
@@ -172,8 +174,8 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="filter-button" mat-button
-                        aria-label="Contact the realtor" (click)="mailTo()">Contact</button>
+                    <button type="submit" class="filter-button" mat-button aria-label="Contact the realtor"
+                        (click)="mailTo()">Contact</button>
 
                 </div>
             </div>
@@ -182,11 +184,46 @@
 </div>
 
 <div class="map-body d-flex flex-column align-items-center justify-content-center">
-    
+
     <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.15328649608!2d78.3887215741942!3d17.45237590093166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91f08e54eb3f%3A0x3128d84171b9c1a0!2sTaaza%20Kitchen!5e0!3m2!1sen!2sin!4v1700411410564!5m2!1sen!2sin"
-    width="90%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade"></iframe>
-    
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.15328649608!2d78.3887215741942!3d17.45237590093166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91f08e54eb3f%3A0x3128d84171b9c1a0!2sTaaza%20Kitchen!5e0!3m2!1sen!2sin!4v1700411410564!5m2!1sen!2sin"
+        width="90%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+
     <h1 class="map-title mx-4">{{propertyData.location.address}} - {{propertyData.location.pincode}}</h1>
+</div>
+
+<div class="recommendations mx-4" *ngIf="!loading && displayProperties">
+    <h1 mat-dialog-title class="content-heading px-0 pb-0 mb-3">Similar properties in this category</h1>
+    <div class="property-container mb-5" *ngIf="loading">
+        <div class="cards skeleton-cards d-flex flex-row">
+            <app-small-skeleton-cards *ngFor="let load of [1,1,1,1,1]"></app-small-skeleton-cards>
+        </div>
+    </div>
+    <div class="property-container mb-5" *ngIf="!loading">
+        <div class="cards d-flex" *ngIf="displayProperties">
+            <app-show-cards class="app-card" *ngFor="let property of displayProperties" [images]="property.images"
+                [propertyName]="property.propertyName" [price]="property.price" [location]="property.location"
+                [ratings]="property.ratings" [category]="property.category" [id]="property.id" [area]="property.area">
+            </app-show-cards>
+        </div>
+    </div>
+</div>
+
+<div class="recommendations mx-4" *ngIf="!loading && similarFeaturesProperties">
+    <h1 mat-dialog-title class="content-heading px-0 pb-0 mb-3">Properties with similar features</h1>
+    <div class="property-container mb-5" *ngIf="loading">
+        <div class="cards skeleton-cards d-flex flex-row">
+            <app-small-skeleton-cards *ngFor="let load of [1,1,1,1,1]"></app-small-skeleton-cards>
+        </div>
+    </div>
+    <div class="property-container mb-5" *ngIf="!loading">
+        <div class="cards d-flex" *ngIf="similarFeaturesProperties">
+            <app-show-cards class="app-card" *ngFor="let property of similarFeaturesProperties"
+                [images]="property.images" [propertyName]="property.propertyName" [price]="property.price"
+                [location]="property.location" [ratings]="property.ratings" [category]="property.category"
+                [id]="property.id" [area]="property.area">
+            </app-show-cards>
+        </div>
+    </div>
 </div>

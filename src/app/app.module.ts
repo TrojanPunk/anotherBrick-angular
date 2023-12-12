@@ -23,6 +23,10 @@ import { FooterComponent } from '../shared/components/footer/footer.component';
 import { LogoutDialogComponent } from '../shared/components/logout-dialog/logout-dialog.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { SkeletonCardComponent } from '../shared/components/skeleton-card/skeleton-card.component';
+import { ShowCardsComponent } from '../shared/components/show-cards/show-cards.component';
+import { FeelingLuckyDialogComponent } from '../shared/components/feeling-lucky-dialog/feeling-lucky-dialog.component';
+import { AnimatedImagesComponent } from '../shared/components/animated-images/animated-images.component';
+import { SmallSkeletonCardsComponent } from 'src/shared/components/small-skeleton-cards/small-skeleton-cards.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +45,11 @@ import { SkeletonCardComponent } from '../shared/components/skeleton-card/skelet
     WishlistComponent,
     FooterComponent,
     LogoutDialogComponent,
-    SkeletonCardComponent
+    SkeletonCardComponent,
+    ShowCardsComponent,
+    FeelingLuckyDialogComponent,
+    AnimatedImagesComponent,
+    SmallSkeletonCardsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,28 @@
+.card {
+    width: 250px;
+    border-radius: 10px;
+    border: none;
+}
+
+.features {
+    gap: 10px;
+}
+
+.skeleton-img {
+    width: 90%;
+}
+
+.area-text {
+    width: 70%;
+}
+
+.skeleton-loader {
+    margin-bottom: 0px;
+}
+
+@media screen and (max-width: 768px) {
+    .skeleton-img {
+        width: 90%;
+        height: 180px;
+    }
+}

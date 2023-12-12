@@ -307,7 +307,7 @@
     color: #e4303f;
 }
 
-.maps{
+.maps {
     box-shadow: 0px 20px 60px 0px rgba(0, 0, 0, 0.08);
 }
 
@@ -357,6 +357,22 @@ iframe {
     font-weight: 600;
 }
 
+.cards {
+    gap: 40px;
+    overflow: auto;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.content-heading {
+    font-family: 'Montserrat';
+    font-size: 16px;
+    font-weight: 600;
+    color: #e4303f;
+}
+
 @media screen and(max-width: 1000px) {
     .details {
         flex-direction: column;
@@ -371,7 +387,7 @@ iframe {
 
 @media (max-width: 576px) {
     .details {
-      flex-direction: column;
+        flex-direction: column;
     }
 
     .property-details {
@@ -395,7 +411,8 @@ iframe {
         width: 100%;
     }
 
-    .gold-header, .gold-text {
+    .gold-header,
+    .gold-text {
         font-size: 12px;
         line-height: 12px;
     }
@@ -408,7 +425,7 @@ iframe {
         gap: 20px;
     }
 
-    .location-address{
+    .location-address {
         font-size: 12px;
     }
 
@@ -429,4 +446,4 @@ iframe {
     .contact-details {
         flex-direction: column;
     }
-  }
+}

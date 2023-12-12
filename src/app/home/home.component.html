@@ -16,6 +16,18 @@
                 <p class="category-control-text">Rental</p>
             </button>
         </div>
+
+        <form class="input-container d-flex justify-content-center">
+            <mat-form-field>
+                <mat-select (selectionChange)="locationFilter($event)" formControlName="citySearch" disableRipple placeholder="Location">
+                    <mat-option *ngFor="let city of cityIcons" [value]="city.city">
+                        <img [src]="city.icon" alt="" class="cityicon">
+                        {{city.city}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </form>
+
         <div class="search-filter d-flex justify-content-between">
             <button class="btn btn-outline-secondary filter d-flex p-3" (click)="openDialog('200ms', '200ms')">
                 <i class="bi bi-sliders"></i>
@@ -28,6 +40,9 @@
                 <i class="bi bi-search"></i>
             </form>
         </div>
+        
+        <img type="button" src="assets/images/wheel.png" alt="" class="spin-wheel" (click)="openWheelDialog('200ms', '200ms')">
+
     </div>
     <div class="skeleton-property-loader" *ngIf="loading">
         <div class="cards skeleton-cards d-flex-flex-column">

@@ -10,6 +10,9 @@ import { PropertyDataService } from 'src/shared/services/property-data.service';
   styleUrls: ['./property-display.component.css']
 })
 export class PropertyDisplayComponent implements OnInit {
+  displayProperties: IPropertyData[] = [];
+  similarFeaturesProperties: IPropertyData[] = [];
+  similarAreaProperties: IPropertyData[] = [];
   propertyId: string | null = "";
   propertyData!: IPropertyData;
   loading = true;
@@ -20,7 +23,10 @@ export class PropertyDisplayComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, private propertyDataService: PropertyDataService) { }
 
   ngOnInit(): void {
+    scrollTo(0, 0);
+
     this.loading = true;
+    this.displaySimilarCategories();
     this.getDataById();
 
     this.avatar = this.randomImage();
@@ -64,5 +70,34 @@ export class PropertyDisplayComponent implements OnInit {
   mailTo(): void {
     window.open(`mailto:${this.propertyData.seller.sellerEmail}?subject=Query regarding the property ${this.propertyData.propertyName}&body=Hi ${this.propertyData.seller.sellerName},%0AI came across your listing for ${this.propertyData.propertyName} and am interested in learning more. Kindly provide additional details about the property, such as:%0A%091. Asking price%0A%092. Availibility for viewing%0A%093. Property tax and maintenance costs%0A%094. Proximity of stores and malls%0A%095. Transportation connectivity.%0A%0AAny additional relevant information is appreciated.
     %0A%0ABest regards,%0A[Name]%0A[Mobile Number]`);
+  }
+
+  displaySimilarCategories(): void {
+    console.log(this.propertyData);
+    this.propertyDataService.getPropertyData().subscribe({
+      next: (res) => {
+        this.displayProperties = res.filter((element: IPropertyData) => element.category === this.propertyData.category && element.propertyName !== this.propertyData.propertyName);
+        this.displaySimilarFeatures(res);
+        this.displaySimilarArea(res);
+
+        console.log(this.displayProperties);
+      },
+
+      error: err => console.log(err)
+    })
+  }
+
+  displaySimilarFeatures(featuresProperties: IPropertyData[]): void {
+    this.similarFeaturesProperties = featuresProperties.filter((element: IPropertyData) => (
+      element.features.bhk >= this.propertyData.features.bhk - 1 && element.features.bhk <= this.propertyData.features.bhk + 1
+      ) || (
+        element.features.baths >= this.propertyData.features.baths - 1 && element.features.baths <= this.propertyData.features.baths + 1
+        ) && element.propertyName !== this.propertyData.propertyName)
+  }
+
+  displaySimilarArea(similarArea: IPropertyData[]): void {
+    this.similarFeaturesProperties = similarArea.filter((element: IPropertyData) => (
+      element.area >= this.propertyData.area - 200 && element.area <= this.propertyData.area + 200)
+      && element.propertyName !== this.propertyData.propertyName)
   }
 }

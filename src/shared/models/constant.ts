@@ -40,3 +40,26 @@ export const PROPERTY_IMAGES = [
 ]
 
 export const PATTERN = /^\d{10}$/;
+
+export const ROLL_IMAGES = [
+    "https://a0.muscache.com/im/pictures/8ce2fe87-9330-4651-8bd0-07fd5fa6b3a6.jpg?im_w=1200", 
+    "https://a0.muscache.com/im/pictures/cab37cd8-2810-46d1-844a-6923b2799625.jpg?im_w=1200",
+    "https://a0.muscache.com/im/pictures/prohost-api/Hosting-819372798923685800/original/4245f49e-6000-4449-933a-8b1fc408efb3.jpeg?im_w=1200",
+    // "https://a0.muscache.com/im/pictures/aaa92d5b-7c1c-497b-8432-bd7a8549eb66.jpg?im_w=1200",
+    "https://a0.muscache.com/im/pictures/miso/Hosting-49678090/original/d362c612-4578-4d46-b0c9-6eb3c2b3563f.jpeg?im_w=1200",
+    "https://a0.muscache.com/im/pictures/81003bae-6d36-4489-97ef-a098bbd01351.jpg?im_w=1200",
+    "https://a0.muscache.com/im/pictures/edf9934c-7dab-47f8-9cf1-a861a1c9c849.jpg?im_w=1200",
+    "https://a0.muscache.com/im/pictures/edf9934c-7dab-47f8-9cf1-a861a1c9c849.jpg?im_w=1200",
+    // "https://a0.muscache.com/im/pictures/edf9934c-7dab-47f8-9cf1-a861a1c9c849.jpg?im_w=1200",
+    "https://a0.muscache.com/im/pictures/f0ea4cba-c771-41b6-92c5-caa646edb513.jpg?im_w=1200",
+    "https://a0.muscache.com/im/pictures/miso/Hosting-52329661/original/800aa635-16b7-4ceb-adbc-3d2445edd9dd.jpeg?im_w=1200",
+    "https://a0.muscache.com/im/pictures/miso/Hosting-698346642348031619/original/ef7f90aa-7f76-4a16-8d8e-cd8aae07bcb0.jpeg?im_w=1200",
+    // "https://a0.muscache.com/im/pictures/93a253aa-eb7b-4c0b-b099-af47b2a88e8d.jpg?im_w=1200",
+    "https://a0.muscache.com/im/pictures/9befa9c8-b3ff-4fe2-a1cd-25bb61539b6c.jpg?im_w=1200",
+    "https://a0.muscache.com/im/pictures/50506ee8-1d7c-4f18-8143-706fbedf9a23.jpg?im_w=1200",
+    // "https://a0.muscache.com/im/pictures/0b65b1cd-0787-45c6-87a1-da3ff9e96760.jpg?im_w=1200",
+    "https://a0.muscache.com/im/pictures/miso/Hosting-874686035326211853/original/d3a47cb7-acc2-40b4-b021-a13e3e18044d.jpeg?im_w=1200",
+    "https://a0.muscache.com/im/pictures/miso/Hosting-853597984900485312/original/988d4929-9f4d-4ce2-bb84-8a4ded24f758.jpeg?im_w=1200",
+    "https://a0.muscache.com/im/pictures/miso/Hosting-892920857311517591/original/bfc6e3dd-6115-4e77-89be-65ed96184712.jpeg?im_w=1200",
+    "https://a0.muscache.com/im/pictures/pro_photo_tool/Hosting-22247959-unapproved/original/69484ac2-00de-4be8-a333-a4b0b104c301.JPEG?im_w=1200"
+]

@@ -96,6 +96,11 @@ export interface IFilterData {
     area: number;
 }
 
+export interface ICityIcons {
+    icon: string;
+    city: string;
+}
+
 export interface IFavoritesData {
     id : string;
     favorites: IPropertyData[];

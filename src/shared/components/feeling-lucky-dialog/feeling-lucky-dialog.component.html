@@ -1,0 +1,85 @@
+<div class="header d-flex justify-content-center">
+    <h1 mat-dialog-title class="filter mb-0">Property Recommendation</h1>
+</div>
+<form [formGroup]="filterData" *ngIf="filterData && !isSearching && !isAnimating && !isDisplaying" mat-dialog-content
+    class="content pt-0" (submit)="filterPropertyData()" novalidate>
+    <h1 mat-dialog-title class="content-heading px-0 pb-0 mb-0">Type of property</h1>
+    <p class="content-description mb-4">
+        Search entire homes, offices or places to rent
+    </p>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs12 px-0 d-flex justify-content-center">
+
+                <div id="tab" class="btn-group btn-group-justified" data-toggle="buttons">
+                    <a class="btn btn-default py-3 px-md-5 px-sm-4"
+                        [ngClass]="{'active': selectedCategory === 'residential'}"
+                        (click)="selectCategory('residential')">
+                        <input type="radio" name="category-selection" [(ngModel)]="selectedCategory" value="residential"
+                            formControlName="category" />
+                        <span class="radio-button"></span>
+                        Residential
+                    </a>
+                    <a class="btn btn-default py-3 px-md-5 px-sm-4"
+                        [ngClass]="{'active': selectedCategory === 'commercial'}"
+                        (click)="selectCategory('commercial')">
+                        <input type="radio" name="category-selection" [(ngModel)]="selectedCategory" value="commercial"
+                            formControlName="category" />
+                        <span class="radio-button"></span>
+                        Commercial
+                    </a>
+                    <a class="btn btn-default py-3 px-md-5 px-sm-4"
+                        [ngClass]="{'active': selectedCategory === 'rentals'}" (click)="selectCategory('rentals')">
+                        <input type="radio" name="category-selection" [(ngModel)]="selectedCategory" value="rentals"
+                            formControlName="category" />
+                        <span class="radio-button"></span>
+                        Rental
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="gif-container d-flex justify-content-center">
+        <img src="assets/images/slot-machine.gif" alt="" class="slot-gif">
+    </div>
+
+    <div class="d-flex justify-content-center mx-0">
+        <button type="submit" class="filter-button" mat-button matTooltip="Filter Properties"
+            aria-label="It filters the properties based on the user preferences">Feeling Lucky</button>
+    </div>
+</form>
+
+<div class="image-transition d-flex justify-content-center">
+    <div class="image-container my-3" *ngIf="isSearching">
+        <img [src]="currentImage" alt="" class="image-roll d-flex justify-content-center">
+    </div>
+</div>
+
+<div class="property-found d-flex flex-column justify-content-center align-items-center mb-0" *ngIf="isAnimating">
+    <p class="found-text">We found a property for you!</p>
+</div>
+
+<div class="random-property d-flex flex-column justify-content-center align-items-center" *ngIf="isDisplaying">
+
+    <div class="voila-text d-flex justify-content-center mt-2">
+        <h1 class="voila">Voila! Here's a proprerty for you</h1>
+    </div>
+
+    <div class="card text-white border-0" [routerLink]="['home', 'property', randomProperty.id]" type="button"
+        mat-dialog-close>
+        <img [src]="randomProperty.images[0]" alt="" class="card-img">
+        <div class="card-img-overlay">
+            <div class="title-rating d-flex align-items-center justify-content-between mb-2">
+                <h5 class="card-title d-flex align-items-center mb-0">
+                    {{randomProperty.propertyName}}
+                </h5>
+                <p class="card-text d-flex align-items-center ratings">
+                    <i class="bi bi-star-fill"></i>
+                    <span class="rating">{{randomProperty.ratings}}</span>
+                </p>
+            </div>
+            <p class="card-text price">₹{{randomProperty.price}}</p>
+        </div>
+    </div>
+</div>

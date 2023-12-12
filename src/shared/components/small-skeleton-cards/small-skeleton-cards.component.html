@@ -1,0 +1,38 @@
+<div class="card d-flex flex-column" type="button">
+    <ngx-skeleton-loader [theme]="{
+        'border-radius': '5px',
+        height: '200px',
+        width: '250px',
+        'margin-bottom': '10px'
+      }"></ngx-skeleton-loader>
+    <div class="card-body ps-0">
+        <ngx-skeleton-loader [theme]="{
+            'border-radius': '5px',
+            height: '24px',
+            width: '60%',
+            'margin-bottom': '20px'
+          }"></ngx-skeleton-loader>
+        <p class="card-text address mb-0"><ngx-skeleton-loader [theme]="{
+                width: '200px',
+                'border-radius': '5',
+                height: '12px',
+              }"></ngx-skeleton-loader></p>
+        <div class="address-action d-flex justify-content-between align-items-center mb-2">
+            <div class="address-details">
+                <p class="card-text city"><ngx-skeleton-loader [theme]="{
+            width: '200px',
+            'border-radius': '5',
+            height: '12px',
+            'margin-bottom': '10px'
+          }"></ngx-skeleton-loader></p>
+            </div>
+        </div>
+
+        <p class="card-text d-flex align-items-center area">
+            <ngx-skeleton-loader class="area-text" [theme]="{
+                'border-radius': '5',
+                height: '16px',
+              }"></ngx-skeleton-loader>
+        </p>
+    </div>
+</div>

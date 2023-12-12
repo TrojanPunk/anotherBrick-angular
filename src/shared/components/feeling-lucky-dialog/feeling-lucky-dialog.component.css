@@ -1,0 +1,300 @@
+.filter {
+    font-family: 'Montserrat';
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.content {
+    font-family: 'Montserrat';
+}
+
+.header {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.content-description {
+    color: #767676;
+    font-family: 'Montserrat';
+    font-weight: 300;
+}
+
+.content-heading {
+    font-family: 'Montserrat';
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.active {
+    background: #222222;
+    color: white;
+}
+
+.radio-button {
+    display: none;
+}
+
+
+input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+input[type="radio"]:checked+.radio-button:before {
+    opacity: 1;
+}
+
+.btn-default {
+    border: 1px solid #e0e0e0;
+    width: 13rem;
+    border-radius: 10px;
+}
+
+.btn-group {
+    border-radius: 10px;
+}
+
+.form-inline {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.form-control {
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+.form-control::placeholder {
+    color: #afafaf;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.form-check-input:focus,
+.form-check-label:focus {
+    color: #222222;
+    background: #222222;
+    box-shadow: none;
+    border: none;
+}
+
+.price-slider, .area-slider {
+    width: 90%;
+}
+
+.price-display {
+    width: 100%;
+}
+
+.slider-text {
+    font-family: 'Poppins';
+    font-weight: 600;
+}
+
+.slider-input {
+    color: #222222;
+    background: black;
+}
+
+.mat-mdc-slider.mat-primary {
+    --mdc-slider-handle-color: #222222;
+    --mdc-slider-focus-handle-color: #222222;
+    --mdc-slider-hover-handle-color: #222222;
+    --mdc-slider-active-track-color: #222222;
+    --mdc-slider-inactive-track-color: #222222;
+    --mdc-slider-with-tick-marks-active-container-color: #fff;
+    --mdc-slider-with-tick-marks-inactive-container-color: #222222;
+    --mat-mdc-slider-ripple-color: #222222;
+    --mat-mdc-slider-hover-ripple-color: rgba(103, 58, 183, 0.05);
+    --mat-mdc-slider-focus-ripple-color: rgba(103, 58, 183, 0.2);
+}
+
+.filter-button {
+    background: #222222;
+    color: white !important;
+    font-family: 'Montserrat' !important;
+    border-radius: 10px;
+    width: 100%;
+    padding: 20px !important;
+}
+
+.image-roll {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.image-container {
+    width: 70%;
+    object-fit: contain;
+}
+
+.filter-button:hover {
+    background: #363636;
+}
+
+.gif-container {
+    width: 100%;
+}
+
+.slot-gif {
+    width: 30%;
+    height: auto;
+}
+
+.property-found {
+    height: 80%;
+}
+
+.found-text {
+    font-family: 'Montserrat';
+    font-size: 20px;
+    color: #e43054;
+    font-weight: 600;
+    animation: found 5s ease-in-out;
+}
+
+.card-body {
+    width: 100%;
+    position: absolute;
+}
+
+.card-img-top {
+    height: 200px;
+    width: 250px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.ratings {
+    gap: 5px;
+}
+
+.rating {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.area {
+    font-weight: 300;
+}
+
+.strong {
+    font-weight: 600;
+}
+
+.price {
+    font-size: 16px;
+    font-weight: 600;
+    color: #e4303f;
+}
+
+.card {
+    font-family: 'Poppins';
+    width: 60% !important;
+    border: none;
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: 500;
+    gap: 10px;
+}
+
+.city {
+    color: #8b8b8b;
+    font-size: 12px;
+}
+
+.random-property {
+    position: relative;
+}
+
+.card-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.card-img-overlay {
+    font-family: 'Montserrat';
+    background: linear-gradient(to top, rgb(33, 33, 33, 1), transparent);
+
+}
+
+.voila {
+    font-family: 'Montserrat';
+    font-size: 20px;
+    color: #e43054;
+    font-weight: 600;
+}
+
+@keyframes found {
+    0% {
+        transform: scale(0.5);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    80% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .btn-default {
+        width: 8rem;
+        font-size: 10px;
+    }
+
+    .content-description {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .btn-default {
+        width: 6rem;
+        font-size: 10px;
+    }
+
+    .content-description {
+        font-size: 12px;
+    }
+
+    h1.slider-text {
+        font-size: 14px;
+    }
+
+    .price-display {
+        padding-right: 10px !important;
+        padding-left: 10px !important;
+    }
+
+    .slot-gif {
+        width: 80%;
+    }
+
+    .found-text, .voila {
+        font-size: 14px;
+    }
+
+    .card {
+        width: 90% !important;
+    }
+}
