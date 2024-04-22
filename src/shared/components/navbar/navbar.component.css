@@ -1,18 +1,18 @@
 .navbar {
     font-family: 'Montserrat';
-    border-top: 1px solid #e0e0e0;
-    border-bottom: 1px solid #e0e0e0;
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
 }
 
 .navbar-brand {
     font-weight: 900;
-    color: #e4303f;
+    color: #000000;
 }
 
 .wishlist {
     gap: 10px;
     font-family: 'Montserrat';
-    background: #e4303f;
+    background: #000000;
     border-radius: 10px;
     color: white;
     font-weight: 600;
@@ -20,7 +20,7 @@
 
 .wishlist:hover,
 .logout:hover {
-    background: #D70565;
+    background: #292727;
     cursor: pointer;
 }
 

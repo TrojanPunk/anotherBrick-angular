@@ -70,7 +70,7 @@
 .price {
     font-size: 16px;
     font-weight: 600;
-    color: #e4303f;
+    color: #000000;
 }
 
 .city {
@@ -85,5 +85,5 @@
 
 .bi-heart, .bi-heart-fill {
     font-size: 20px;
-    color: #e4303f;
+    color: #000000;
 }

@@ -34,7 +34,7 @@
 }
 
 .bi-geo-alt-fill {
-    color: #e4303f;
+    color: #000000;
     background: #ffe6e8;
 }
 
@@ -87,7 +87,7 @@
 
 .price {
     font-weight: 600;
-    color: #e4303f;
+    color: #000000;
 }
 
 .property-essentials {
@@ -145,7 +145,7 @@
 
 .property-details-heading {
     width: 100%;
-    color: #e4303f;
+    color: #000000;
 }
 
 .star-rating {
@@ -181,7 +181,7 @@
 }
 
 .fa-certificate {
-    color: #e4303f;
+    color: #000000;
 }
 
 #star {
@@ -216,11 +216,11 @@
 }
 
 .contact-icon {
-    color: #e4303f;
+    color: #000000;
 }
 
 .filter-button {
-    background: linear-gradient(to right, #e43054, #D70565);
+    background: linear-gradient(to right, #000000, #000000);
     color: white !important;
     font-family: 'Montserrat' !important;
     border-radius: 10px;
@@ -231,7 +231,7 @@
 }
 
 .filter-button:hover {
-    background: linear-gradient(to right, #D70565, #e43054);
+    background: linear-gradient(to right, #e6dfe2, #e7dee0);
 }
 
 .feature-metric {
@@ -260,7 +260,7 @@
     font-size: 40px;
     font-weight: 600;
     font-family: 'Montserrat';
-    color: #e4303f;
+    color: #000000;
 }
 
 .ft {
@@ -304,7 +304,7 @@
 }
 
 .bi-crop {
-    color: #e4303f;
+    color: #000000;
 }
 
 .maps {
@@ -327,11 +327,11 @@ mat-spinner {
     font-size: 12px;
     font-family: 'Montserrat';
     font-weight: 500;
-    color: #e4303f;
+    color: #000000;
 }
 
 :host::ng-deep .mdc-circular-progress__indeterminate-circle-graphic {
-    stroke: #e43054 !important;
+    stroke: #000000 !important;
 }
 
 .map-title {
@@ -353,7 +353,7 @@ iframe {
 
 .website {
     text-decoration: none;
-    color: #e4303f;
+    color: #000000;
     font-weight: 600;
 }
 
@@ -370,7 +370,7 @@ iframe {
     font-family: 'Montserrat';
     font-size: 16px;
     font-weight: 600;
-    color: #e4303f;
+    color: #000000;
 }
 
 @media screen and(max-width: 1000px) {

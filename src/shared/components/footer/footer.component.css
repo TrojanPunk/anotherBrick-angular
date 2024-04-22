@@ -1,7 +1,7 @@
 .brand {
     font-weight: 900;
     font-size: 20px;
-    color: #e4303f;
+    color: #000000;
 }
 
 footer {
@@ -9,5 +9,5 @@ footer {
 }
 
 li:hover {
-    color: #e4303f !important;
+    color: #000000 !important;
 }

@@ -40,7 +40,7 @@ img {
     font-family: 'Montserrat';
     font-size: 24px;
     font-weight: 600;
-    color: #e4303f;
+    color: #000000;
 }
 
 .input-container {
@@ -126,7 +126,7 @@ label {
 }
 
 .bi-camera {
-    color: #e4303f;
+    color: #000000;
     font-size: 24px;
 }
 
@@ -148,7 +148,7 @@ label {
     align-items: center;
     font-family: 'Montserrat';
     padding: 10px 20px;
-    background: #e4303f;
+    background: #000000;
     color: white;
     border: none;
     border-radius: 10px;
@@ -162,7 +162,7 @@ label {
     display: inline-block;
     cursor: pointer;
     background: #ffe6e8;
-    border: 2px dashed #e4303f;
+    border: 2px dashed #000000;
     width: 10rem;
     height: 10rem;
     border-radius: 10px;
@@ -173,12 +173,12 @@ label {
 }
 
 .file-upload-label i {
-    color: #e4303f;
+    color: #000000;
     font-size: 40px;
 }
 
 .file-upload::-webkit-file-upload-button {
-    
+
 }
 
 .img-uploads {

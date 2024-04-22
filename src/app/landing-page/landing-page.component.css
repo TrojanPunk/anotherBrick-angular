@@ -10,12 +10,12 @@
 .signup {
     background: transparent;
     border: none;
-    color: #e4303f;
+    color: #000000;
 }
 
 .signin:hover,
 .signup:hover {
-    background: #e4303f;
+    background: #000000;
     color: white;
 }
 
@@ -74,7 +74,7 @@ label {
 }
 
 .fa {
-    color: #e4303f;
+    color: #000000;
 }
 
 .landing-section {
@@ -106,7 +106,7 @@ label {
 }
 
 .filter-button {
-    background: linear-gradient(to right, #e43054, #D70565);
+    background: linear-gradient(to right, #000000, #000000);
     color: white !important;
     font-family: 'Montserrat' !important;
     border-radius: 10px;
@@ -117,7 +117,7 @@ label {
 }
 
 .filter-button:hover {
-    background: linear-gradient(to right, #D70565, #e43054);
+    background: linear-gradient(to right, #000000, #000000);
 }
 
 .filter-button:disabled {

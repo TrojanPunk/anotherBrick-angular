@@ -159,7 +159,7 @@ input[type="radio"]:checked+.radio-button:before {
 .found-text {
     font-family: 'Montserrat';
     font-size: 20px;
-    color: #e43054;
+    color: #000000;
     font-weight: 600;
     animation: found 5s ease-in-out;
 }
@@ -195,7 +195,7 @@ input[type="radio"]:checked+.radio-button:before {
 .price {
     font-size: 16px;
     font-weight: 600;
-    color: #e4303f;
+    color: #000000;
 }
 
 .card {
@@ -234,7 +234,7 @@ input[type="radio"]:checked+.radio-button:before {
 .voila {
     font-family: 'Montserrat';
     font-size: 20px;
-    color: #e43054;
+    color: #000000;
     font-weight: 600;
 }
 
